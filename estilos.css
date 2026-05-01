@@ -1,6 +1,29 @@
 /* General */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Open Sans', sans-serif; background-color: #fff; overflow-x: hidden; }
+:root {
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Poppins:wght@400;700&display=swap');
+    /* Colores extraídos de tus imágenes */
+    --color-fondo-oscuro: #3e3633;  /* Marrón oscuro de fondo (imagen 3) */
+    --color-tarjeta-normal: #504641; /* Marrón medio de tarjetas (imagen 4) */
+    --color-tarjeta-destacada: #231f1d; /* Negro/marrón muy oscuro de tarjeta central (imagen 4) */
+    --color-texto-claro: #ffffff;    /* Blanco para texto */
+    --color-boton: #e68a00;         /* Naranja/Oro para los botones 'Ver más' */
+    --color-boton-hover: #cc7a00;   /* Naranja más oscuro para el hover */
+    
+    /* Fuentes y espaciados */
+    --fuente-principal: 'Poppins', sans-serif;
+    --espaciado-seccion: 80px;
+    --max-ancho-contenedor: 1400px;
+}
+
+/* Deja el body así de simple */
+body { 
+    font-family: var(--fuente-principal);
+    background-color: #1a1513; /* Un color oscuro de base por si algo falla */
+    color: var(--color-texto-claro);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita scrolls horizontales raros */
+}
+
 
 /* Navegación */
 header {
@@ -15,10 +38,286 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1400px;
+    max-width: var(--max-ancho-contenedor);
     margin: 0 auto;
-    padding: 0 50px;
+    padding: 0 20px;
     height: 100px;
+    text-align: center;
+}
+
+.titulo-seccion {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+}
+
+.subtitulo-seccion {
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+    opacity: 0.9;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.seccion-que-hacemos {
+    background: transparent; /* Para que se vea el fondo oscuro si quieres */
+    padding: 60px 0;
+    text-align: center;
+    
+}
+
+.seccion-que-hacemos .contenido-texto p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: center; /* Centramos también el texto para que armonice */
+}
+
+.contenido-texto b {
+    color: #da7d01; /* El mismo marrón oscuro del footer para dar coherencia */
+}
+
+.seccion-que-hacemos .contenido-texto p {
+    margin-bottom: 20px;
+}
+
+.seccion-servicios {
+    background-color: #312824 !important; /* Marrón sólido */
+    padding: 80px 0;
+    width: 100%;
+}
+
+.grilla-servicios {
+    display: grid;
+    /* Forzamos exactamente 3 columnas de igual tamaño */
+    grid-template-columns: repeat(3, 1fr); 
+    /* Espaciado entre las tarjetas */
+    gap: 30px; 
+    /* Centrado horizontal de la grilla completa */
+    justify-content: center; 
+    /* Centrado de las tarjetas dentro de su celda */
+    justify-items: center; 
+    /* Aseguramos que no se estire más del contenedor principal */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.tarjeta-servicio {
+    background-color: var(--color-tarjeta-normal); /* Marrón medio */
+    width: 100%;
+    max-width: 360px; /* Ancho máximo de la tarjeta */
+    border-radius: 4px; /* Bordes ligeramente redondeados */
+    overflow: hidden; /* Cortar la imagen si sobresale */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.tarjeta-servicio:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+
+.imagen-servicio {
+    width: 100%;
+    height: 200px; /* Altura fija para que todas las imágenes se vean iguales */
+    object-fit: cover; /* Ajustar imagen sin deformar */
+    display: block;
+}
+
+.seccion-servicios {
+    background-color: #312824;
+    padding: 80px 0;
+    text-align: center; /* Esto centra el título y subtítulo */
+}
+
+.seccion-servicios .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Asegura que todo el contenido esté al medio */
+}
+
+.seccion-servicios .titulo-seccion {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.seccion-servicios .subtitulo-seccion {
+    font-family: 'Open Sans', sans-serif;
+    color: #ffffff;
+    opacity: 1; /* Quitamos transparencia para que se vea igual que la imagen */
+    margin-bottom: 60px;
+}
+
+.info-servicio {
+    padding: 30px;
+    flex-grow: 1; /* Ocupar el espacio restante */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Espaciar elementos */
+}
+
+.numero-servicio {
+    font-size: 2.5rem;
+    font-weight: 700;
+    opacity: 0.5; /* Ligeramente transparente */
+    margin-bottom: 10px;
+}
+
+/* Título del producto */
+.nombre-servicio {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: var(--color-texto-claro);
+}
+
+
+/* El Botón 'Ver más' */
+.boton-ver-mas {
+    display: inline-block;
+    background-color: var(--color-boton);
+    color: var(--color-texto-claro);
+    padding: 12px 35px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Botón a ancho completo dentro de la info */
+    max-width: 200px; /* Pero con un ancho máximo */
+}
+
+.boton-ver-mas:hover {
+    background-color: var(--color-boton-hover);
+}
+
+
+.titulo-que-hacemos {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    
+}
+
+.titulo-que-hacemos{
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 800;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    Margin-bottom: 25px;
+    color: #fede4c}
+
+
+.seccion-servicios .titulo-seccion {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 800;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    Margin-bottom: 25px;
+    color: #da7d01
+}
+
+footer {
+    background-color: #1a1513 !important; /* Marrón casi negro */
+    padding: 60px 0 20px 0;
+    width: 100%;
+    display: block;
+}
+
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-box h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #e68a00;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+/* Redes sociales más grandes */
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.footer-social img {
+    width: 50px !important; /* Forzamos el tamaño grande */
+    height: 50px !important;
+    margin: 0 15px;
+    filter: brightness(1) invert(0); /* Asegúrate de que tus iconos sean de color original o blanco */
+}
+
+
+.footer-social a:hover img {
+    transform: scale(1.2);
+}
+
+.footer-copy {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Responsive para el footer */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ========================================= */
+/* MEDIA QUERIES (RESPONSIVE) */
+/* ========================================= */
+
+/* Para tablets y pantallas medianas */
+@media (max-width: 1024px) {
+    .grilla-servicios {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Para móviles */
+@media (max-width: 768px) {
+    :root {
+        --espaciado-seccion: 50px;
+    }
+    
+    .titulo-seccion {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    .subtitulo-seccion {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    
+    .grilla-servicios {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+    }
+    
+    .tarjeta-servicio {
+        max-width: 100%; /* Tarjetas a ancho completo */
+    }
 }
 
 .logo-link{
@@ -42,7 +341,7 @@ header {
 }
 
 .menu-superior li a {
-    color: #f39c12; /* Color ocre/dorado similar al logo */
+    color: #fede4c; /* Color ocre/dorado similar al logo */
     text-decoration: none;
     font-weight: 700;
     padding: 10px 20px;
@@ -52,13 +351,13 @@ header {
 }
 
 .menu-superior li a:hover {
-    background-color: #e67e22; /* Color al pasar el mouse */
+    background-color: #fede4c; /* Color al pasar el mouse */
     color: #000;
 }
 
 /* Botón Contactanos Arriba Derecha */
 .btn-contactanos {
-    background-color: #d35400; /* Naranja oscuro */
+    background-color: #da7d01; /* Naranja oscuro */
     color: white;
     padding: 15px 35px;
     text-decoration: none;
@@ -68,12 +367,14 @@ header {
     display: inline-block;
 }
 
-.btn-contactanos:hover { background-color: #e67e22; }
+.btn-contactanos:hover { background-color: #c77100; }
 
 /* Sección Hero (Fondo de troncos) */
 .hero {
     height: 100vh;
-    background-image: url('Imagenes/Fondo-troncos.png');
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+        url('Imagenes/Fondo-troncos.png');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -83,7 +384,7 @@ header {
 }
 
 .hero-overlay {
-    background: rgba(0, 0, 0, 0.75); /* Oscurece un poco la imagen para que se lea el texto */
+ 
     width: 100%;
     height: 100%;
     display: flex;
