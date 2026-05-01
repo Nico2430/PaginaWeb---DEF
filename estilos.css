@@ -12,6 +12,17 @@
     font-size: 4rem;
     margin-bottom: 10px;
 }
+.hero-nosotros {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Ajusta la altura que desees para el slider */
+    margin-top: 0;
+    overflow: hidden;
+       background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+        url('Imagenes/Fondo-troncos.png');
+}
+
 .hero-content-center p {
     font-size: 1.5rem;
     margin-bottom: 0;
@@ -154,7 +165,7 @@ header {
     max-width: var(--max-ancho-contenedor);
     margin: 0 auto;
     padding: 0 20px;
-    height: 100px;
+    height: auto;
     text-align: center;
 }
 
@@ -440,58 +451,65 @@ footer {
 
 .slider-nosotros-container {
     position: relative;
-    max-width: 900px;
-    margin: 40px auto 0;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    width: 100vw; /* Ancho total de la ventana */
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .slide-nosotros {
     display: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
     text-align: center;
-    padding: 20px;
-    background: #fff;
 }
 
 .slide-nosotros.active {
     display: block;
-    animation: fadeIn 0.5s;
+    animation: fadeIn 0.8s ease-in-out;
 }
 
 .slide-nosotros img {
-    max-width: 100%;
-    max-height: 400px;
-    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto hace que la imagen llene todo el ancho sin deformarse */
+    filter: brightness(0.6); /* Oscurece un poco las imágenes para que el texto resalte */
 }
-
 .caption-nosotros {
-    margin-top: 15px;
-    font-size: 1.3rem;
-    color: #333;
-    font-weight: 600;
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    text-align: center;
+    width: 80%;
+    z-index: 10;
 }
 
 .btn-slider {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(218, 125, 1, 0.9);
+    background: rgba(218, 125, 1, 0.7);
     color: white;
     border: none;
-    font-size: 2rem;
-    padding: 10px 18px;
+    padding: 20px;
     cursor: pointer;
-    border-radius: 50%;
+    font-size: 2.5rem;
+    z-index: 100;
     transition: background 0.3s;
 }
 
 .btn-slider:hover {
-    background: #da7d01;
+    background: rgba(218, 125, 1, 1);
 }
 
-.btn-slider.prev { left: 10px; }
-.btn-slider.next { right: 10px; }
+.btn-slider.prev { left: 20px; border-radius: 0 5px 5px 0; }
+.btn-slider.next { right: 20px; border-radius: 5px 0 0 5px; }
 
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -505,9 +523,9 @@ footer {
     .slide-nosotros img {
         max-height: 200px;
     }
-    .caption-nosotros {
-        font-size: 1rem;
-    }
+    .caption-nosotros { font-size: 1.5rem; bottom: 15%; }
+    .hero-nosotros { height: 60vh; }
+    .btn-slider { padding: 10px; font-size: 1.5rem; }
 }
 
 .logo-link{
