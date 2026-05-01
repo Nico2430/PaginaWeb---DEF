@@ -434,6 +434,82 @@ footer {
     }
 }
 
+/* ============================= */
+/* NOSOTROS - SLIDER             */
+/* ============================= */
+
+.slider-nosotros-container {
+    position: relative;
+    max-width: 900px;
+    margin: 40px auto 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.slide-nosotros {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+}
+
+.slide-nosotros.active {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+.slide-nosotros img {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 8px;
+}
+
+.caption-nosotros {
+    margin-top: 15px;
+    font-size: 1.3rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.btn-slider {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(218, 125, 1, 0.9);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.btn-slider:hover {
+    background: #da7d01;
+}
+
+.btn-slider.prev { left: 10px; }
+.btn-slider.next { right: 10px; }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .slider-nosotros-container {
+        max-width: 100%;
+    }
+    .slide-nosotros img {
+        max-height: 200px;
+    }
+    .caption-nosotros {
+        font-size: 1rem;
+    }
+}
+
 .logo-link{
     margin-right: auto;
 }
