@@ -31,13 +31,26 @@
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero hero-portones">
         <div class="hero-overlay">
-            <div class="hero-content">
+            <div class="hero-content hero-content-center">
                 <h1>Nuestros Portones</h1>
                 <p>Seguridad y diseño para tu propiedad</p>
-                <a href="https://wa.me/5491151074926" class="btn-whatsapp">Consultar por WhatsApp</a>
+                <div class="galeria-ventanas galeria-portones" style="margin-top:40px;">
+                    <div class="galeria-item"><img src="Imagenes/Portones/20200828_110902.webp" alt="Portón Corredizo" data-modelo="Portón Corredizo"></div>
+                    <div class="galeria-item"><img src="Imagenes/Portones/20200828_111019.webp" alt="Portón de Cedro" data-modelo="Portón de Cedro"></div>
+                    <div class="galeria-item"><img src="Imagenes/Portones/20201007_150208.webp" alt="Portón Colonial" data-modelo="Portón Colonial"></div>
+                    <div class="galeria-item"><img src="Imagenes/Portones/20201007_150251.webp" alt="Portón de Eucalipto" data-modelo="Portón de Eucalipto"></div>
+                    <div class="galeria-item"><img src="Imagenes/Portones/20210305_094112.webp" alt="Portón Moderno" data-modelo="Portón Moderno"></div>
+                    <div class="galeria-item"><img src="Imagenes/Portones/IMG_20221005_132159.webp" alt="Portón de Entrada" data-modelo="Portón de Entrada"></div>
+                </div>
             </div>
+        </div>
+        <!-- Modal para imagen grande -->
+        <div id="modal-galeria" class="modal-galeria">
+            <span class="cerrar-modal">&times;</span>
+            <img class="modal-img" src="" alt="Imagen grande">
+            <div class="modal-leyenda"></div>
         </div>
     </section>
 
@@ -51,68 +64,7 @@
         </div>
     </section>
 
-    <section id="portones" class="seccion-servicios">
-        <div class="contenedor">
-            <h2 class="titulo-seccion">Catálogo de Portones</h2>
-            <p class="subtitulo-seccion">Conoce nuestra variedad de portones</p>
-            
-            <div class="grilla-servicios">
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Portones/20200828_110902.webp" alt="Portón de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">01</span>
-                        <h3 class="nombre-servicio">Portón Corredizo</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
 
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Portones/20200828_111019.webp" alt="Portón de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">02</span>
-                        <h3 class="nombre-servicio">Portón de Cedro</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
-
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Portones/20201007_150208.webp" alt="Portón de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">03</span>
-                        <h3 class="nombre-servicio">Portón Colonial</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
-
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Portones/20201007_150251.webp" alt="Portón de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">04</span>
-                        <h3 class="nombre-servicio">Portón de Eucalipto</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
-
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Portones/20210305_094112.webp" alt="Portón de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">05</span>
-                        <h3 class="nombre-servicio">Portón Moderno</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
-
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Portones/IMG_20221005_132159.webp" alt="Portón de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">06</span>
-                        <h3 class="nombre-servicio">Portón de Entrada</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <footer>
         <div class="contenedor">
@@ -139,5 +91,26 @@
             </div>
         </div>
     </footer>
+<script>
+// Modal galería para portones
+const modal = document.getElementById('modal-galeria');
+const modalImg = modal.querySelector('.modal-img');
+const modalLeyenda = modal.querySelector('.modal-leyenda');
+document.querySelectorAll('.galeria-portones img').forEach(img => {
+    img.addEventListener('click', function() {
+        modal.style.display = 'flex';
+        modalImg.src = this.src;
+        modalLeyenda.textContent = this.getAttribute('data-modelo');
+    });
+});
+modal.querySelector('.cerrar-modal').onclick = function() {
+    modal.style.display = 'none';
+};
+window.onclick = function(event) {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+};
+</script>
 </body>
 </html>

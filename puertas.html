@@ -31,12 +31,34 @@
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero hero-puertas">
         <div class="hero-overlay">
-            <div class="hero-content">
+            <div class="hero-content hero-content-center">
                 <h1>Nuestras Puertas</h1>
                 <p>Diseño y calidad en cada detalle</p>
-                <a href="https://wa.me/5491151074926" class="btn-whatsapp">Consultar por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería justo debajo del título principal -->
+    <section class="galeria-section">
+        <div class="contenedor">
+            <div class="galeria-ventanas galeria-puertas">
+                <div class="galeria-item"><img src="Imagenes/Puertas/20180511_141733.webp" alt="Puerta de Cedro" data-modelo="Puerta de Cedro"></div>
+                <div class="galeria-item"><img src="Imagenes/Puertas/20180614_102457.webp" alt="Puerta de Eucalipto" data-modelo="Puerta de Eucalipto"></div>
+                <div class="galeria-item"><img src="Imagenes/Puertas/20180815_104722.webp" alt="Puerta Victoria" data-modelo="Puerta Victoria"></div>
+                <div class="galeria-item"><img src="Imagenes/Puertas/20190724_125451.webp" alt="Puerta Clásica" data-modelo="Puerta Clásica"></div>
+                <div class="galeria-item"><img src="Imagenes/Puertas/20200210_121115.webp" alt="Puerta Moderna" data-modelo="Puerta Moderna"></div>
+                <div class="galeria-item"><img src="Imagenes/Puertas/20200528_082502.webp" alt="Puerta de Entrada" data-modelo="Puerta de Entrada"></div>
+                <div class="galeria-item"><img src="Imagenes/Puertas/20210205_080127.webp" alt="Puerta Placa Blanca" data-modelo="Puerta Placa Blanca"></div>
+                <div class="galeria-item"><img src="Imagenes/Puertas/20210212_121330.webp" alt="Puerta Placa Moderna" data-modelo="Puerta Placa Moderna"></div>
+                <div class="galeria-item"><img src="Imagenes/Puertas/20210225_085122.webp" alt="Puerta Placa Clásica" data-modelo="Puerta Placa Clásica"></div>
+            </div>
+            <!-- Modal para imagen grande -->
+            <div id="modal-galeria" class="modal-galeria">
+                <span class="cerrar-modal">&times;</span>
+                <img class="modal-img" src="" alt="Imagen grande">
+                <div class="modal-leyenda"></div>
             </div>
         </div>
     </section>
@@ -51,104 +73,7 @@
         </div>
     </section>
 
-    <section class="seccion-servicios">
-        <div class="contenedor">
-            <h2 class="titulo-seccion">Catálogo de Puertas</h2>
-            <p class="subtitulo-seccion">Conoce nuestra variedad de puertas de madera</p>
-            
-            <div class="grilla-servicios">
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Puertas/20180511_141733.webp" alt="Puerta de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">01</span>
-                        <h3 class="nombre-servicio">Puerta de Cedro</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
 
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Puertas/20180614_102457.webp" alt="Puerta de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">02</span>
-                        <h3 class="nombre-servicio">Puerta de Eucalipto</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
-
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Puertas/20180815_104722.webp" alt="Puerta de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">03</span>
-                        <h3 class="nombre-servicio">Puerta Victoria</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
-
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Puertas/20190724_125451.webp" alt="Puerta de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">04</span>
-                        <h3 class="nombre-servicio">Puerta Clásica</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
-
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Puertas/20200210_121115.webp" alt="Puerta de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">05</span>
-                        <h3 class="nombre-servicio">Puerta Moderna</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
-
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Puertas/20200528_082502.webp" alt="Puerta de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">06</span>
-                        <h3 class="nombre-servicio">Puerta de Entrada</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="puertas-placa" class="seccion-servicios">
-        <div class="contenedor">
-            <h2 class="titulo-seccion">Puertas Placa</h2>
-            <p class="subtitulo-seccion">Puertas de placa con terminación de primera</p>
-            
-            <div class="grilla-servicios">
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Puertas/20210205_080127.webp" alt="Puerta placa" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">01</span>
-                        <h3 class="nombre-servicio">Puerta Placa Blanca</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
-
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Puertas/20210212_121330.webp" alt="Puerta placa" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">02</span>
-                        <h3 class="nombre-servicio">Puerta Placa Moderna</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
-
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Puertas/20210225_085122.webp" alt="Puerta placa" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">03</span>
-                        <h3 class="nombre-servicio">Puerta Placa Clásica</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <footer>
         <div class="contenedor">
@@ -175,5 +100,26 @@
             </div>
         </div>
     </footer>
+<script>
+// Modal galería para puertas
+const modal = document.getElementById('modal-galeria');
+const modalImg = modal.querySelector('.modal-img');
+const modalLeyenda = modal.querySelector('.modal-leyenda');
+document.querySelectorAll('.galeria-puertas img').forEach(img => {
+    img.addEventListener('click', function() {
+        modal.style.display = 'flex';
+        modalImg.src = this.src;
+        modalLeyenda.textContent = this.getAttribute('data-modelo');
+    });
+});
+modal.querySelector('.cerrar-modal').onclick = function() {
+    modal.style.display = 'none';
+};
+window.onclick = function(event) {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+};
+</script>
 </body>
 </html>

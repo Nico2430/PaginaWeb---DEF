@@ -31,12 +31,11 @@
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero hero-ventanas">
         <div class="hero-overlay">
-            <div class="hero-content">
+            <div class="hero-content hero-content-center">
                 <h1>Nuestras Ventanas</h1>
                 <p>Calidad y diseño para tu hogar</p>
-                <a href="https://wa.me/5491151074926" class="btn-whatsapp">Consultar por WhatsApp</a>
             </div>
         </div>
     </section>
@@ -55,100 +54,52 @@
         <div class="contenedor">
             <h2 class="titulo-seccion">Catálogo de Ventanas</h2>
             <p class="subtitulo-seccion">Conoce nuestra variedad de ventanas</p>
-            
-            <div class="grilla-servicios">
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Ventanas/20200116_135519.webp" alt="Ventana de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">01</span>
-                        <h3 class="nombre-servicio">Ventana Victoria</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
+            <div class="filtros-ventanas">
+                <button class="filtro-btn" data-filtro="todas">Todas</button>
+                <button class="filtro-btn" data-filtro="sola">Solas</button>
+                <button class="filtro-btn" data-filtro="postigon">C/Postigón</button>
+                <button class="filtro-btn" data-filtro="celosia">C/Celosía</button>
+            </div>
+            <div class="galeria-ventanas">
+                <div class="galeria-item" data-tipo="sola">
+                    <img src="Imagenes/Ventanas/20200116_135519.webp" alt="Ventana Victoria" data-modelo="Ventana Victoria">
                 </div>
-
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Ventanas/20200129_103808.webp" alt="Ventana de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">02</span>
-                        <h3 class="nombre-servicio">Ventana Clásica</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
+                <div class="galeria-item" data-tipo="sola">
+                    <img src="Imagenes/Ventanas/20200129_103808.webp" alt="Ventana Clásica" data-modelo="Ventana Clásica">
                 </div>
-
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Ventanas/20200214_091307.webp" alt="Ventana de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">03</span>
-                        <h3 class="nombre-servicio">Ventana Moderna</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
+                <div class="galeria-item" data-tipo="sola">
+                    <img src="Imagenes/Ventanas/20200214_091307.webp" alt="Ventana Moderna" data-modelo="Ventana Moderna">
                 </div>
-
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Ventanas/20200717_135158.webp" alt="Ventana de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">04</span>
-                        <h3 class="nombre-servicio">Ventana con Postigón</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
+                <div class="galeria-item" data-tipo="postigon">
+                    <img src="Imagenes/Ventanas/20200717_135158.webp" alt="Ventana con Postigón" data-modelo="Ventana con Postigón">
                 </div>
-
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Ventanas/20200903_083659.webp" alt="Ventana de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">05</span>
-                        <h3 class="nombre-servicio">Ventana de Cedro</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
+                <div class="galeria-item" data-tipo="sola">
+                    <img src="Imagenes/Ventanas/20200903_083659.webp" alt="Ventana de Cedro" data-modelo="Ventana de Cedro">
                 </div>
-
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Ventanas/20201021_122531.webp" alt="Ventana de madera" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">06</span>
-                        <h3 class="nombre-servicio">Ventana de Eucalipto</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
+                <div class="galeria-item" data-tipo="celosia">
+                    <img src="Imagenes/Ventanas/20201021_122531.webp" alt="Ventana de Eucalipto" data-modelo="Ventana de Eucalipto">
                 </div>
+                <!-- Postigones y celosías -->
+                <div class="galeria-item" data-tipo="postigon">
+                    <img src="Imagenes/Ventanas/c-Postig%C3%B3n/1710429293877.webp" alt="Postigón de Cedro" data-modelo="Postigón de Cedro">
+                </div>
+                <div class="galeria-item" data-tipo="celosia">
+                    <img src="Imagenes/Ventanas/Celosia/1710429293971.webp" alt="Celosía de Eucalipto" data-modelo="Celosía de Eucalipto">
+                </div>
+                <div class="galeria-item" data-tipo="postigon">
+                    <img src="Imagenes/Ventanas/Solo-Postigon/1710429294205.webp" alt="Postigón Colonial" data-modelo="Postigón Colonial">
+                </div>
+            </div>
+            <!-- Modal para imagen grande -->
+            <div id="modal-galeria" class="modal-galeria">
+                <span class="cerrar-modal">&times;</span>
+                <img class="modal-img" src="" alt="Imagen grande">
+                <div class="modal-leyenda"></div>
             </div>
         </div>
     </section>
 
-    <section class="seccion-servicios">
-        <div class="contenedor">
-            <h2 class="titulo-seccion">Postigones y Celosías</h2>
-            <p class="subtitulo-seccion">Protección y estilo para tus ventanas</p>
-            
-            <div class="grilla-servicios">
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Ventanas/c-Postig%C3%B3n/1710429293877.webp" alt="Postigón" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">01</span>
-                        <h3 class="nombre-servicio">Postigón de Cedro</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
 
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Ventanas/Celosia/1710429293971.webp" alt="Celosía" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">02</span>
-                        <h3 class="nombre-servicio">Celosía de Eucalipto</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
-
-                <div class="tarjeta-servicio">
-                    <img src="Imagenes/Ventanas/Solo-Postigon/1710429294205.webp" alt="Postigón" class="imagen-servicio">
-                    <div class="info-servicio">
-                        <span class="numero-servicio">03</span>
-                        <h3 class="nombre-servicio">Postigón Colonial</h3>
-                        <a href="https://wa.me/5491151074926" class="boton-ver-mas">Consultar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <footer>
         <div class="contenedor">
@@ -175,5 +126,41 @@
             </div>
         </div>
     </footer>
+<script>
+// Filtro de galería
+document.querySelectorAll('.filtro-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const filtro = this.getAttribute('data-filtro');
+        document.querySelectorAll('.galeria-item').forEach(item => {
+            if (filtro === 'todas' || item.getAttribute('data-tipo') === filtro) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+        document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('activo'));
+        this.classList.add('activo');
+    });
+});
+// Modal galería
+const modal = document.getElementById('modal-galeria');
+const modalImg = modal.querySelector('.modal-img');
+const modalLeyenda = modal.querySelector('.modal-leyenda');
+document.querySelectorAll('.galeria-item img').forEach(img => {
+    img.addEventListener('click', function() {
+        modal.style.display = 'flex';
+        modalImg.src = this.src;
+        modalLeyenda.textContent = this.getAttribute('data-modelo');
+    });
+});
+modal.querySelector('.cerrar-modal').onclick = function() {
+    modal.style.display = 'none';
+};
+window.onclick = function(event) {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+};
+</script>
 </body>
 </html>

@@ -1,3 +1,116 @@
+/* HERO centrado para páginas de producto */
+.hero-content-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 60vh;
+    text-align: center;
+    padding-top: 60px;
+}
+.hero-content-center h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+.hero-content-center p {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+/* Filtros galería ventanas */
+.filtros-ventanas {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+.filtro-btn {
+    background: #504641;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-size: 1rem;
+}
+.filtro-btn.activo, .filtro-btn:hover {
+    background: #e68a00;
+    color: #fff;
+}
+
+/* Galería de ventanas */
+.galeria-ventanas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+.galeria-item {
+    background: #504641;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 220px;
+}
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+.galeria-item:hover {
+    transform: scale(1.04);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+}
+
+/* Modal galería */
+.modal-galeria {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.85);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.modal-galeria .modal-img {
+    max-width: 90vw;
+    max-height: 70vh;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.5);
+}
+.modal-galeria .modal-leyenda {
+    color: #fff;
+    font-size: 1.3rem;
+    background: #231f1d;
+    padding: 12px 30px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.cerrar-modal {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2100;
+    transition: color 0.2s;
+}
+.cerrar-modal:hover {
+    color: #e68a00;
+}
 /* General */
 :root {
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Poppins:wght@400;700&display=swap');
