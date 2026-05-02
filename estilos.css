@@ -451,55 +451,75 @@ footer {
 
 .slider-nosotros-container {
     position: relative;
-    width: 100vw; /* Ancho total de la ventana */
+    width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.2);
+    background: transparent;
+    overflow: hidden;
 }
 
 .slide-nosotros {
     display: none;
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    position: relative;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 0 20px;
 }
 
 .slide-nosotros.active {
-    display: block;
+    display: flex;
     animation: fadeIn 0.8s ease-in-out;
 }
 
-.slide-nosotros img {
+.contenido-slider-texto {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Esto hace que la imagen llene todo el ancho sin deformarse */
-    filter: brightness(0.6); /* Oscurece un poco las imágenes para que el texto resalte */
+    background: rgba(0, 0, 0, 0.55);
+    padding: 30px 32px;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
 }
-.caption-nosotros {
+
+.contenido-slider-texto h2,
+.contenido-slider-texto p {
+    color: #ffffff;
+    margin: 0;
+}
+
+.contenido-slider-texto h2 {
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.02em;
+}
+
+.contenido-slider-texto p {
+    font-size: clamp(1rem, 1.2vw, 1.3rem);
+    line-height: 1.8;
+}
+
+.slide-nosotros::before {
+    content: '';
     position: absolute;
-    bottom: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 3rem;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-    text-align: center;
-    width: 80%;
-    z-index: 10;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    pointer-events: none;
 }
 
 .btn-slider {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(218, 125, 1, 0.7);
+    background: rgba(218, 125, 1, 0.85);
     color: white;
     border: none;
-    padding: 20px;
+    padding: 16px 18px;
     cursor: pointer;
-    font-size: 2.5rem;
+    font-size: 2rem;
     z-index: 100;
     transition: background 0.3s;
 }
@@ -520,12 +540,25 @@ footer {
     .slider-nosotros-container {
         max-width: 100%;
     }
-    .slide-nosotros img {
-        max-height: 200px;
+    .slide-nosotros {
+        padding: 0 12px;
     }
-    .caption-nosotros { font-size: 1.5rem; bottom: 15%; }
-    .hero-nosotros { height: 60vh; }
-    .btn-slider { padding: 10px; font-size: 1.5rem; }
+    .contenido-slider-texto {
+        padding: 22px 18px;
+    }
+    .contenido-slider-texto h2 {
+        font-size: 2rem;
+    }
+    .contenido-slider-texto p {
+        font-size: 1rem;
+    }
+    .hero-nosotros {
+        height: 55vh;
+    }
+    .btn-slider {
+        padding: 12px 14px;
+        font-size: 1.5rem;
+    }
 }
 
 .logo-link{
