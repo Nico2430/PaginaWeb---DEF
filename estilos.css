@@ -4,9 +4,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height: 60vh;
+    height: auto;
+    min-height: 60vh;
     text-align: center;
-    padding-top: 60px;
+    padding: 60px 0 40px;
+    width: 100%;
+    margin: 0;
 }
 .hero-content-center h1 {
     font-size: 4rem;
@@ -34,6 +37,7 @@
     justify-content: center;
     gap: 15px;
     margin-bottom: 40px;
+    padding: 0;
 }
 .filtro-btn {
     background: #504641;
@@ -54,9 +58,15 @@
 /* Galería de ventanas */
 .galeria-ventanas {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     margin-bottom: 40px;
+    width: 90%;
+    max-width: 1600px;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
 }
 .galeria-item {
     background: #504641;
@@ -68,13 +78,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 220px;
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+    height: 0;
 }
 .galeria-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.2s;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .galeria-item:hover {
     transform: scale(1.04);
@@ -92,12 +108,20 @@
     justify-content: center;
     flex-direction: column;
 }
+.modal-galeria-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    position: relative;
+}
 .modal-galeria .modal-img {
     max-width: 90vw;
     max-height: 70vh;
     border-radius: 8px;
-    margin-bottom: 20px;
     box-shadow: 0 4px 32px rgba(0,0,0,0.5);
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
 }
 .modal-galeria .modal-leyenda {
     color: #fff;
@@ -105,8 +129,35 @@
     background: #231f1d;
     padding: 12px 30px;
     border-radius: 4px;
-    margin-bottom: 10px;
+    margin-top: 20px;
     text-align: center;
+}
+.modal-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #e68a00;
+    color: #fff;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 2100;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-nav-btn:hover {
+    background: #cc7a00;
+}
+.modal-nav-btn.prev {
+    left: -70px;
+}
+.modal-nav-btn.next {
+    right: -70px;
 }
 .cerrar-modal {
     position: absolute;
@@ -613,7 +664,8 @@ footer {
 
 /* Sección Hero (Fondo de troncos) */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
         url('Imagenes/Fondo-troncos.png');
@@ -625,14 +677,27 @@ footer {
     justify-content: center;
 }
 
-.hero-overlay {
- 
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+.hero.hero-ventanas {
+    min-height: 100vh;
+    height: auto;
+    align-items: flex-start;
+    padding-bottom: 60px;
 }
+
+.hero-overlay {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-left: 0;
+}
+
+.hero.hero-ventanas .hero-overlay {
+    padding-top: 120px;
+}
+
 .hero-content{
     color: white;
     font-size: 4rem;

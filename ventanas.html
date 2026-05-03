@@ -34,18 +34,7 @@
     <section class="hero hero-ventanas">
         <div class="hero-overlay">
             <div class="hero-content hero-content-center">
-                <h1>Nuestras Ventanas</h1>
-                <p>Calidad y diseño para tu hogar</p>
-            </div>
-                  <div class="galeria-hero galeria-ventanas galeria-puertas"></div>
-        </div>
-    </section>
 
-
-    <section id="ventanas" class="seccion-servicios">
-        <div class="contenedor">
-            <h2 class="titulo-seccion">Catálogo de Ventanas</h2>
-            <p class="subtitulo-seccion">Conoce nuestra variedad de ventanas</p>
             <div class="filtros-ventanas">
                 <button class="filtro-btn" data-filtro="todas">Todas</button>
                 <button class="filtro-btn" data-filtro="sola">Solas</button>
@@ -85,9 +74,22 @@
             <!-- Modal para imagen grande -->
             <div id="modal-galeria" class="modal-galeria">
                 <span class="cerrar-modal">&times;</span>
-                <img class="modal-img" src="" alt="Imagen grande">
+                <div class="modal-galeria-container">
+                    <button class="modal-nav-btn prev">❮</button>
+                    <img class="modal-img" src="" alt="Imagen grande">
+                    <button class="modal-nav-btn next">❯</button>
+                </div>
                 <div class="modal-leyenda"></div>
             </div>
+            </div>
+                  <div class="galeria-hero galeria-ventanas galeria-puertas"></div>
+        </div>
+    </section>
+
+
+    <section id="ventanas" class="seccion-servicios">
+        <div class="contenedor">
+            
         </div>
     </section>
 
@@ -122,6 +124,15 @@
         </div>
     </footer>
 <script>
+// Variables globales para el modal
+let currentImageIndex = 0;
+let visibleImages = [];
+
+// Función para obtener imágenes visibles (no ocultas por filtro)
+function getVisibleImages() {
+    return Array.from(document.querySelectorAll('.galeria-item')).filter(item => item.style.display !== 'none');
+}
+
 // Filtro de galería
 document.querySelectorAll('.filtro-btn').forEach(btn => {
     btn.addEventListener('click', function() {
@@ -135,27 +146,85 @@ document.querySelectorAll('.filtro-btn').forEach(btn => {
         });
         document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('activo'));
         this.classList.add('activo');
+        visibleImages = getVisibleImages();
     });
 });
+
 // Modal galería
 const modal = document.getElementById('modal-galeria');
 const modalImg = modal.querySelector('.modal-img');
 const modalLeyenda = modal.querySelector('.modal-leyenda');
+const prevBtn = modal.querySelector('.modal-nav-btn.prev');
+const nextBtn = modal.querySelector('.modal-nav-btn.next');
+
 document.querySelectorAll('.galeria-item img').forEach(img => {
     img.addEventListener('click', function() {
         modal.style.display = 'flex';
-        modalImg.src = this.src;
-        modalLeyenda.textContent = this.getAttribute('data-modelo');
+        visibleImages = getVisibleImages();
+        currentImageIndex = visibleImages.findIndex(item => item.querySelector('img') === this);
+        updateModalImage();
     });
 });
+
+function updateModalImage() {
+    if (visibleImages.length === 0) return;
+    
+    // Fade out
+    modalImg.style.opacity = '0';
+    
+    // Wait for fade transition and change image
+    setTimeout(() => {
+        const currentItem = visibleImages[currentImageIndex];
+        const img = currentItem.querySelector('img');
+        modalImg.src = img.src;
+        modalLeyenda.textContent = img.getAttribute('data-modelo');
+        
+        // Fade in
+        modalImg.style.opacity = '1';
+    }, 250);
+}
+
+// Navegación con botones
+prevBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length;
+    updateModalImage();
+});
+
+nextBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    currentImageIndex = (currentImageIndex + 1) % visibleImages.length;
+    updateModalImage();
+});
+
+// Navegación con teclado
+document.addEventListener('keydown', function(e) {
+    if (modal.style.display === 'flex') {
+        if (e.key === 'ArrowLeft') {
+            currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length;
+            updateModalImage();
+        } else if (e.key === 'ArrowRight') {
+            currentImageIndex = (currentImageIndex + 1) % visibleImages.length;
+            updateModalImage();
+        } else if (e.key === 'Escape') {
+            modal.style.display = 'none';
+        }
+    }
+});
+
+// Cerrar modal
 modal.querySelector('.cerrar-modal').onclick = function() {
     modal.style.display = 'none';
 };
+
 window.onclick = function(event) {
     if (event.target === modal) {
         modal.style.display = 'none';
     }
 };
+
+// Inicializar imágenes visibles
+visibleImages = getVisibleImages();
 </script>
 </body>
 </html>
