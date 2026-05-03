@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Poppins:wght@400;700&display=swap');
+
 /* HERO centrado para páginas de producto */
 .hero-content-center {
     display: flex;
@@ -7,8 +9,9 @@
     height: auto;
     min-height: 60vh;
     text-align: center;
-    padding: 60px 0 40px;
+    padding: 60px 20px 40px;
     width: 100%;
+    max-width: none;
     margin: 0;
 }
 .hero-content-center h1 {
@@ -59,13 +62,13 @@
 .galeria-ventanas {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    gap: 20px;
     margin-bottom: 40px;
-    width: 90%;
-    max-width: 1600px;
+    width: 100%;
+    max-width: 100%;
     padding: 0;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 0;
+    margin-right: 0;
     box-sizing: border-box;
 }
 .galeria-item {
@@ -78,19 +81,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    aspect-ratio: 1 / 1;
     width: 100%;
-    padding-bottom: 100%;
-    position: relative;
-    height: 0;
 }
 .galeria-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.2s;
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 .galeria-item:hover {
     transform: scale(1.04);
@@ -175,7 +173,6 @@
 }
 /* General */
 :root {
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Poppins:wght@400;700&display=swap');
     /* Colores extraídos de tus imágenes */
     --color-fondo-oscuro: #3e3633;  /* Marrón oscuro de fondo (imagen 3) */
     --color-tarjeta-normal: #504641; /* Marrón medio de tarjetas (imagen 4) */
@@ -690,7 +687,7 @@ footer {
     height: auto;
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
     padding-left: 0;
 }
 
@@ -704,7 +701,9 @@ footer {
     font-weight: 700;
     margin-bottom: 15px;
     line-height: 1.2;
-    padding-left: 100px;
+    padding: 100px 0px 0px 0px;
+    max-width: 1000px;
+    width: 100%;
 }
 
 .hero-content h1 {
