@@ -150,6 +150,129 @@
     }
 }
 
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 0 16px;
+    }
+    .menu-superior {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 8px;
+    }
+    .menu-superior li {
+        width: 100%;
+        margin: 0;
+    }
+    .menu-superior li a {
+        display: block;
+        width: 100%;
+        padding: 10px 14px;
+    }
+    .button-area {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .btn-contactanos {
+        width: 100%;
+        max-width: 320px;
+        padding: 14px 0;
+    }
+    .hero {
+        min-height: auto;
+    }
+    .hero .hero-overlay {
+        padding-top: 40px;
+    }
+    .hero-content-center,
+    .hero-content {
+        width: 100%;
+        padding: 24px 16px 30px;
+    }
+    .hero-content h1,
+    .titulo-seccion {
+        font-size: 2.6rem;
+    }
+    .subtitulo-seccion {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    .galeria-layout {
+        grid-template-columns: 1fr;
+    }
+    .galeria-sidebar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .galeria-sidebar .filtro-btn {
+        flex: 1 1 calc(50% - 10px);
+        margin-bottom: 10px;
+    }
+    .galeria-ventanas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .modal-galeria .modal-galeria-container {
+        gap: 18px;
+        padding: 0 12px;
+    }
+    .modal-galeria .modal-img {
+        max-width: 90vw;
+        max-height: 65vh;
+    }
+    .modal-nav-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 1.3rem;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .footer-copy {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 540px) {
+    .nav-container {
+        padding: 0 12px;
+    }
+    .menu-superior li a {
+        padding: 10px 12px;
+    }
+    .hero-content-center,
+    .hero-content {
+        padding: 18px 12px 24px;
+    }
+    .hero-content h1,
+    .titulo-seccion {
+        font-size: 2rem;
+    }
+    .galeria-ventanas {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .galeria-item {
+        min-height: 240px;
+    }
+    .modal-galeria .modal-img {
+        max-height: 55vh;
+    }
+    .modal-nav-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
+    .footer-copy {
+        padding: 14px 0;
+    }
+}
+
 /* Galería de ventanas */
 .galeria-ventanas {
     display: grid;
