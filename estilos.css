@@ -634,33 +634,49 @@ footer {
     margin-bottom: 40px;
 }
 
+.footer-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .footer-box h3 {
     font-family: 'Montserrat', sans-serif;
     color: #e68a00;
-    margin-bottom: 15px;
+    margin-bottom: 0;
     font-size: 1.5rem;
 }
 
-/* Redes sociales más grandes */
+.footer-box p {
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* Redes sociales */
 .footer-social {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: flex-start;
+    gap: 16px;
     align-items: center;
+    margin-top: 6px;
+}
+
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .footer-social img {
-    width: 36px;
-    height: 36px;
-    max-width: 100%;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
     margin: 0;
-    filter: brightness(1) invert(0); /* Asegúrate de que tus iconos sean de color original o blanco */
     transition: transform 0.2s ease;
 }
 
 .footer-social a:hover img {
-    transform: scale(1.15);
+    transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
