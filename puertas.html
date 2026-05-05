@@ -118,79 +118,95 @@ let currentImageIndex = 0;
 let visibleImages = [];
 
 const puertaImages = [
-    { file: '1710429293239.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '1710429293751.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '1710429294098.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '1710429294144.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20180511_141733.webp', tipo: 'machimbrada', subtipo: '1' },
-    { file: '20180614_102457.webp', tipo: 'machimbrada', subtipo: '2' },
-    { file: '20180815_104722.webp', tipo: 'tableros', subtipo: '4' },
-    { file: '20190724_125451.webp', tipo: 'tableros', subtipo: '6' },
-    { file: '20190827_173804.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20190827_174107.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20190827_175231.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20191119_171918.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20200210_121115.webp', tipo: 'tableros', subtipo: '8' },
-    { file: '20200219_115950.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20200528_082502.webp', tipo: 'machimbrada', subtipo: '1' },
-    { file: '20200528_082835.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20200731_172534.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20200731_172559.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20200805_151753.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20201028_130235.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20201030_150430.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20201104_121255.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20201106_092507.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20201106_143430.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20201106_143722.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20201113_094858.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20201113_094955.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20201113_095357.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20201117_092936.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20201120_123240.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20201120_123618.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20201120_162457.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20201203_104232.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20201216_083631.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20201217_075044.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20201224_085033.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20210106_161814.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20210115_084315.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20210115_084408.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20210205_080127.webp', tipo: 'placas', subtipo: 'placa' },
-    { file: '20210212_121330.webp', tipo: 'placas', subtipo: 'placa' },
-    { file: '20210225_085122.webp', tipo: 'placas', subtipo: 'placa' },
-    { file: '20210303_102839.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20210306_103135.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20210306_103313_001.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20210409_130447.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20210409_130628.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20210409_130650.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: '20210517_115138.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20220512_085206.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20220601_113545.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20220602_085604.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20220602_090125.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20220826_120445.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20220927_154653.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20220927_155146.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20220928_103249.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20221110_102518.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20221223_090411.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20230203_110505.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20230414_122448.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20230414_122524.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20230420_142235.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20230421_162124.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20230421_162135.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20230516_113633.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20230519_144047.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20230609_114135.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20230616_115233.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'IMG_20230726_173908.webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'WhatsApp Image 2023-10-13 at 8.56.44 AM (1).webp', tipo: 'todas', subtipo: 'todas' },
-    { file: 'WhatsApp Image 2023-10-13 at 8.56.44 AM.webp', tipo: 'todas', subtipo: 'todas' }
+    { file: '1002 Clásica angosta.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '1002 Clásica.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '1004 + PF Especial.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '1004 + PF.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '1004 - Recta.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '1004 Ciega puerta y media.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '1004 SOL.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '1006 ciega 1-4pto.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '1006 Ciega doble.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '1006 Ciega nva.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '1006 Ciega.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '1006 sol.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '1006 V-R.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '1008 Ciega.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '2000 VR estilo campo.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '2000 VR Total.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '2000 vr.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '2001 Florencia.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '2001 Griega.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '2001 V-R en 4 hojas.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '2001 V-R Florencia.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '2001 v-r.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '2002 - Doble.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '2002 Clasica doble.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '2002 Clásica c-Moldura Bastidor.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '2002 Clásica pecho paloma.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '2002 Horizontal VR.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '2002 VR Doble.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '2002 VR Horizontal.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: '2002 VR.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Clasica c-Moldura Bastidor ESPECIAL.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Clasica ESPECIAL c-Moldura Bastidor.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimabrada 1pulgada c-espacio.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbarada 1p + 2PF V-R.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbarada 1p c-espacio DOBLE.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbarada 1p Machimbres anchos.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbarada 1p.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbarada 2p puerta y media.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbarada 2p y media c-insertos.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbarada 2pulgadas + extension superior.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada + 2 PF (Pivot).webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada 1p c-barral.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada 1pulgada + Media hoja V-E.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada 1pulgada c-espacio vidrio.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada 1pulgada VE Superior.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada 1pulgada.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada 2 pulgdas en 8 machimbres.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada 2p c-insertos + PF.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada 2p c-Insertos c-media hoja.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada 2pulgadas + 2PF.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada 2pulgadas + superior.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada 2pulgadas alta.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada 2pulgadas ancha.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada 2pulgadas c-2cerrojos.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada 2pulgadas c-barral.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada 2pulgadas c-Insertos.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada 2pulgadas en 8 machimbres.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada 2pulgadas.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada Cruz V-R.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada Vertical - Bariloche dorso.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada Vertical - Bariloche.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada Vertical angost.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada Vertical angosta frente.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada vertical c-espacio.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada Vertical normal.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Machimbrada vertical.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Mitad Machimbrada Mitad V-R.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Placa lisa.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Placa V-E.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Puerta tiple 2001.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Puerta y media 2000 V-E.webp', tipo: 'todas', subtipo: 'todas' },
+    { file: 'Puerta y media placa cedrillo.webp', tipo: 'todas', subtipo: 'todas' }
 ];
+
+function getFriendlyName(file, prefix = 'Puerta') {
+    let name = file.replace(/\.webp$/i, '').replace(/[_-]+/g, ' ').trim();
+    if (/^IMG/i.test(name)) {
+        name = name.replace(/^IMG[-_]?/i, '').trim();
+        return `${prefix} ${name}`;
+    }
+    if (/^WhatsApp Image/i.test(name)) {
+        name = name.replace(/^WhatsApp Image/i, '').trim();
+        return `${prefix}${name ? ' ' + name : ''}`;
+    }
+    if (/^\d/.test(name)) {
+        return `${prefix} ${name}`;
+    }
+    return name;
+}
 
 function buildPuertasGallery() {
     const gallery = document.querySelector('.galeria-puertas');
@@ -204,7 +220,7 @@ function buildPuertasGallery() {
         const image = document.createElement('img');
         image.loading = 'lazy';
         image.src = `Imagenes/Puertas/${encodeURI(item.file)}`;
-        const altText = item.file.replace(/[_-]/g, ' ').replace(/\.webp$/i, '');
+        const altText = getFriendlyName(item.file);
         image.alt = altText;
         image.dataset.modelo = altText;
 
