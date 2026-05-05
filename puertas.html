@@ -192,21 +192,6 @@ const puertaImages = [
     { file: 'Puerta y media placa cedrillo.webp', tipo: 'todas', subtipo: 'todas' }
 ];
 
-function getFriendlyName(file, prefix = 'Puerta') {
-    let name = file.replace(/\.webp$/i, '').replace(/[_-]+/g, ' ').trim();
-    if (/^IMG/i.test(name)) {
-        name = name.replace(/^IMG[-_]?/i, '').trim();
-        return `${prefix} ${name}`;
-    }
-    if (/^WhatsApp Image/i.test(name)) {
-        name = name.replace(/^WhatsApp Image/i, '').trim();
-        return `${prefix}${name ? ' ' + name : ''}`;
-    }
-    if (/^\d/.test(name)) {
-        return `${prefix} ${name}`;
-    }
-    return name;
-}
 
 function buildPuertasGallery() {
     const gallery = document.querySelector('.galeria-puertas');
