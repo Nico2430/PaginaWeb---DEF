@@ -409,6 +409,12 @@ body {
     overflow-x: hidden; /* Evita scrolls horizontales raros */
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 
 /* Navegación */
 header {
@@ -639,19 +645,32 @@ footer {
 .footer-social {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 20px;
+    align-items: center;
 }
 
 .footer-social img {
-    width: 50px !important; /* Forzamos el tamaño grande */
-    height: 50px !important;
-    margin: 0 15px;
+    width: 36px;
+    height: 36px;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 0;
     filter: brightness(1) invert(0); /* Asegúrate de que tus iconos sean de color original o blanco */
+    transition: transform 0.2s ease;
 }
 
-
 .footer-social a:hover img {
-    transform: scale(1.2);
+    transform: scale(1.15);
+}
+
+@media (max-width: 768px) {
+    .footer-social {
+        gap: 16px;
+    }
+    .footer-social img {
+        width: 32px;
+        height: 32px;
+    }
 }
 
 .footer-copy {
