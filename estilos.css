@@ -14,6 +14,11 @@
     max-width: none;
     margin: 0;
 }
+.hero-ventanas .hero-content-center,
+.hero-puertas .hero-content-center {
+    align-items: stretch;
+    text-align: left;
+}
 .hero-content-center h1 {
     font-size: 4rem;
     margin-bottom: 10px;
@@ -58,17 +63,102 @@
     color: #fff;
 }
 
+.galeria-layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 36px;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto 40px;
+    align-items: start;
+    align-self: stretch;
+}
+.galeria-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: stretch;
+    max-width: 280px;
+}
+.galeria-sidebar h2 {
+    font-size: 2rem;
+    margin: 0 0 10px;
+    color: #ffffff;
+}
+.galeria-sidebar .filtro-btn {
+    width: 100%;
+    text-align: left;
+    padding: 16px 22px;
+    font-size: 1rem;
+}
+.subfiltros {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+.subfiltros.activo {
+    display: flex;
+}
+.galeria-principal {
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .galeria-layout {
+        grid-template-columns: 1fr;
+    }
+    .galeria-sidebar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .galeria-sidebar .filtro-btn {
+        flex: 1 1 calc(50% - 10px);
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .galeria-layout {
+        grid-template-columns: 1fr;
+    }
+    .galeria-sidebar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .galeria-sidebar .filtro-btn {
+        flex: 1 1 calc(50% - 10px);
+        margin-bottom: 10px;
+    }
+    .galeria-ventanas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 540px) {
+    .galeria-sidebar {
+        flex-direction: column;
+    }
+    .galeria-sidebar .filtro-btn {
+        flex: 1 1 100%;
+        margin-bottom: 0;
+    }
+    .galeria-ventanas {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Galería de ventanas */
 .galeria-ventanas {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 0;
     width: 100%;
     max-width: 100%;
     padding: 0;
-    margin-left: 0;
-    margin-right: 0;
     box-sizing: border-box;
 }
 .galeria-item {

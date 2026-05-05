@@ -36,30 +36,50 @@
             <div class="hero-content hero-content-center">
                 <h1>Nuestras Puertas</h1>
                 <p>Diseño y calidad en cada detalle</p>
-                   <div class="galeria-hero galeria-ventanas galeria-puertas">
-                <div class="galeria-item"><img src="Imagenes/Puertas/20180511_141733.webp" alt="Puerta de Cedro" data-modelo="Puerta de Cedro"></div>
-                <div class="galeria-item"><img src="Imagenes/Puertas/20180614_102457.webp" alt="Puerta de Eucalipto" data-modelo="Puerta de Eucalipto"></div>
-                <div class="galeria-item"><img src="Imagenes/Puertas/20180815_104722.webp" alt="Puerta Victoria" data-modelo="Puerta Victoria"></div>
-                <div class="galeria-item"><img src="Imagenes/Puertas/20190724_125451.webp" alt="Puerta Clásica" data-modelo="Puerta Clásica"></div>
-                <div class="galeria-item"><img src="Imagenes/Puertas/20200210_121115.webp" alt="Puerta Moderna" data-modelo="Puerta Moderna"></div>
-                <div class="galeria-item"><img src="Imagenes/Puertas/20200528_082502.webp" alt="Puerta de Entrada" data-modelo="Puerta de Entrada"></div>
-                <div class="galeria-item"><img src="Imagenes/Puertas/20210205_080127.webp" alt="Puerta Placa Blanca" data-modelo="Puerta Placa Blanca"></div>
-                <div class="galeria-item"><img src="Imagenes/Puertas/20210212_121330.webp" alt="Puerta Placa Moderna" data-modelo="Puerta Placa Moderna"></div>
-                <div class="galeria-item"><img src="Imagenes/Puertas/20210225_085122.webp" alt="Puerta Placa Clásica" data-modelo="Puerta Placa Clásica"></div>
-            </div>
+                <div class="galeria-layout">
+                    <aside class="galeria-sidebar">
+                        <h2>Filtrar</h2>
+                        <div class="filtro-grupo">
+                            <button class="filtro-btn activo" data-filter-type="tipo" data-filter-value="todas">Todas</button>
+                            <button class="filtro-btn" data-filter-type="tipo" data-filter-value="machimbrada">Machimbrada</button>
+                            <button class="filtro-btn" data-filter-type="tipo" data-filter-value="tableros">Tableros</button>
+                            <button class="filtro-btn" data-filter-type="tipo" data-filter-value="placas">Puertas placas</button>
+                        </div>
+                        <div class="subfiltros" data-parent="machimbrada">
+                            <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="1">1\"</button>
+                            <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="2">2\"</button>
+                        </div>
+                        <div class="subfiltros" data-parent="tableros">
+                            <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="4">4 tableros</button>
+                            <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="6">6 tableros</button>
+                            <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="8">8 tableros</button>
+                        </div>
+                    </aside>
+                    <div class="galeria-principal">
+                        <h2 class="titulo-seccion">Nuestras puertas</h2>
+                        <div class="galeria-hero galeria-ventanas galeria-puertas">
+                            <div class="galeria-item" data-tipo="machimbrada" data-subtipo="1"><img src="Imagenes/Puertas/20180511_141733.webp" alt="Puerta de Cedro" data-modelo="Puerta de Cedro"></div>
+                            <div class="galeria-item" data-tipo="machimbrada" data-subtipo="2"><img src="Imagenes/Puertas/20180614_102457.webp" alt="Puerta de Eucalipto" data-modelo="Puerta de Eucalipto"></div>
+                            <div class="galeria-item" data-tipo="tableros" data-subtipo="4"><img src="Imagenes/Puertas/20180815_104722.webp" alt="Puerta Victoria" data-modelo="Puerta Victoria"></div>
+                            <div class="galeria-item" data-tipo="tableros" data-subtipo="6"><img src="Imagenes/Puertas/20190724_125451.webp" alt="Puerta Clásica" data-modelo="Puerta Clásica"></div>
+                            <div class="galeria-item" data-tipo="tableros" data-subtipo="8"><img src="Imagenes/Puertas/20200210_121115.webp" alt="Puerta Moderna" data-modelo="Puerta Moderna"></div>
+                            <div class="galeria-item" data-tipo="machimbrada" data-subtipo="1"><img src="Imagenes/Puertas/20200528_082502.webp" alt="Puerta de Entrada" data-modelo="Puerta de Entrada"></div>
+                            <div class="galeria-item" data-tipo="placas" data-subtipo="placa"><img src="Imagenes/Puertas/20210205_080127.webp" alt="Puerta Placa Blanca" data-modelo="Puerta Placa Blanca"></div>
+                            <div class="galeria-item" data-tipo="placas" data-subtipo="placa"><img src="Imagenes/Puertas/20210212_121330.webp" alt="Puerta Placa Moderna" data-modelo="Puerta Placa Moderna"></div>
+                            <div class="galeria-item" data-tipo="placas" data-subtipo="placa"><img src="Imagenes/Puertas/20210225_085122.webp" alt="Puerta Placa Clásica" data-modelo="Puerta Placa Clásica"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-         
-        </div>
-        <!-- Modal para imagen grande -->
-        <div id="modal-galeria" class="modal-galeria">
+    <!-- Modal para imagen grande -->
+    <div id="modal-galeria" class="modal-galeria">
             <span class="cerrar-modal">&times;</span>
             <img class="modal-img" src="" alt="Imagen grande">
             <div class="modal-leyenda"></div>
         </div>
-    </section>
 
   
     <footer>
@@ -95,6 +115,53 @@
 const modal = document.getElementById('modal-galeria');
 const modalImg = modal.querySelector('.modal-img');
 const modalLeyenda = modal.querySelector('.modal-leyenda');
+const tipoButtons = document.querySelectorAll('.filtro-btn[data-filter-type="tipo"]');
+const subfilterGroups = document.querySelectorAll('.subfiltros');
+const subfilterButtons = document.querySelectorAll('.subfiltro');
+let activeTipo = 'todas';
+let activeSubtipo = '';
+
+tipoButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+        activeTipo = this.dataset.filterValue;
+        activeSubtipo = '';
+        tipoButtons.forEach(b => b.classList.remove('activo'));
+        this.classList.add('activo');
+        subfilterButtons.forEach(b => b.classList.remove('activo'));
+        updateSubfilterGroups();
+        filterDoorItems();
+    });
+});
+
+subfilterButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+        activeSubtipo = this.dataset.filterValue;
+        subfilterButtons.forEach(b => b.classList.remove('activo'));
+        this.classList.add('activo');
+        filterDoorItems();
+    });
+});
+
+function updateSubfilterGroups() {
+    subfilterGroups.forEach(group => {
+        group.classList.toggle('activo', group.dataset.parent === activeTipo);
+    });
+}
+
+function filterDoorItems() {
+    document.querySelectorAll('.galeria-item').forEach(item => {
+        const tipo = item.dataset.tipo;
+        const subtipo = item.dataset.subtipo;
+        let visible = activeTipo === 'todas' || tipo === activeTipo;
+        if (visible && activeSubtipo) {
+            visible = subtipo === activeSubtipo;
+        }
+        item.style.display = visible ? '' : 'none';
+    });
+}
+
+updateSubfilterGroups();
+
 document.querySelectorAll('.galeria-puertas img').forEach(img => {
     img.addEventListener('click', function() {
         modal.style.display = 'flex';
