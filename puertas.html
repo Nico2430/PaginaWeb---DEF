@@ -36,20 +36,23 @@
                 <h1>Nuestras Puertas</h1>
                 <br>
                 <div class="galeria-layout">
-                    <aside class="galeria-sidebar">
-                        <h2>Filtrar</h2>
-                        <div class="filtro-grupo">
-                            <button class="filtro-btn activo" data-filter-type="tipo" data-filter-value="todas">Todas</button>
-                            <button class="filtro-btn" data-filter-type="tipo" data-filter-value="machimbrada">Machimbrada</button>
-                            <button class="filtro-btn" data-filter-type="tipo" data-filter-value="tablero">Tableros</button>
-                            <button class="filtro-btn" data-filter-type="tipo" data-filter-value="placa">Puertas placas</button>
-                            <button class="filtro-btn" data-filter-type="tipo" data-filter-value="vidrio">Vidrio</button>
-                        </div>
+                <aside class="galeria-sidebar">
+                <h2>Filtrar</h2>
+                    <div class="filtro-grupo">
+                        <button class="filtro-btn activo" data-filter-type="tipo" data-filter-value="todas">Todas</button>
+                        
+                        <!-- Botón Machimbrada -->
+                        <button class="filtro-btn" data-filter-type="tipo" data-filter-value="machimbrada">Machimbrada</button>
+                        <!-- Subfiltros de Machimbrada (ahora están justo debajo de su botón) -->
                         <div class="subfiltros" data-parent="machimbrada">
                             <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="1">1" (pulgada)</button>
                             <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="2">2" (pulgadas)</button>
                             <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="v">Vertical</button>
                         </div>
+
+                        <!-- Botón Tableros -->
+                        <button class="filtro-btn" data-filter-type="tipo" data-filter-value="tablero">Tableros</button>
+                        <!-- Subfiltros de Tableros (ahora están justo debajo de su botón) -->
                         <div class="subfiltros" data-parent="tablero">
                             <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="1">1 tablero</button>
                             <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="2">2 tableros</button>
@@ -57,7 +60,11 @@
                             <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="6">6 tableros</button>
                             <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="8">8 tableros</button>
                         </div>
-                    </aside>
+
+                        <button class="filtro-btn" data-filter-type="tipo" data-filter-value="placa">Puertas placas</button>
+                        <button class="filtro-btn" data-filter-type="tipo" data-filter-value="vidrio">Vidrio</button>
+                    </div>
+                </aside>
                     <div class="galeria-principal">
                         <div class="galeria-hero galeria-ventanas galeria-puertas"></div>
                     </div>
@@ -122,78 +129,78 @@ let currentImageIndex = 0;
 let visibleImages = [];
 
 const puertaImages = [
-    { file: '1002 Clásica angosta.webp', tipo: 'tablero', subtipo: '2' },
-    { file: '1002 Clásica.webp', tipo: 'tablero', subtipo: '2' },
-    { file: '1004 + PF Especial.webp', tipo: 'tablero', subtipo: '4' },
-    { file: '1004 + PF.webp', tipo: 'tablero', subtipo: '4' },
-    { file: '1004 - Recta.webp', tipo: 'tablero', subtipo: '4' },
-    { file: '1004 Ciega puerta y media.webp', tipo: 'tablero', subtipo: '4' },
-    { file: '1004 SOL.webp', tipo: 'Tablero', subtipo: '4' },
-    { file: '1006 ciega 1-4pto.webp', tipo: 'Tablero', subtipo: '6' },
-    { file: '1006 Ciega doble.webp', tipo: 'Tablero', subtipo: '6' },
-    { file: '1006 Ciega nva.webp', tipo: 'Tablero', subtipo: '6' },
-    { file: '1006 Ciega.webp', tipo: 'Tablero', subtipo: '6' },
-    { file: '1006 sol.webp', tipo: 'Tablero', subtipo: '6' },
-    { file: '1006 V-R.webp', tipo: 'Tablero', subtipo: '6' },
-    { file: '1008 Ciega.webp', tipo: 'Tablero', subtipo: '8' },
-    { file: '2000 VR estilo campo.webp', tipo: 'Vidrio', subtipo: 'todas' },
-    { file: '2000 VR Total.webp', tipo: 'Vidrio', subtipo: 'todas' },
-    { file: '2000 vr.webp', tipo: 'Vidrio', subtipo: 'todas' },
-    { file: '2001 Florencia.webp', tipo: 'Tablero', subtipo: '1' },
-    { file: '2001 Griega.webp', tipo: 'Vidrio', subtipo: '1' },
-    { file: '2001 V-R en 4 hojas.webp', tipo: 'Vidrio', subtipo: '1' },
-    { file: '2001 V-R Florencia.webp', tipo: 'Tablero', subtipo: '1' },
-    { file: '2001 v-r.webp', tipo: 'Tablero', subtipo: '1' },
-    { file: '2002 - Doble.webp', tipo: 'Tablero', subtipo: '2' },
-    { file: '2002 Clasica doble.webp', tipo: 'Tablero', subtipo: '2' },
-    { file: '2002 Clásica c-Moldura Bastidor.webp', tipo: 'Tablero', subtipo: '2' },
-    { file: '2002 Clásica pecho paloma.webp', tipo: 'Tablero', subtipo: '2' },
-    { file: '2002 Horizontal VR.webp', tipo: 'Tablero', subtipo: '2' },
-    { file: '2002 VR Doble.webp', tipo: 'Tablero', subtipo: '2' },
-    { file: '2002 VR Horizontal.webp', tipo: 'Tablero', subtipo: '2' },
-    { file: '2002 VR.webp', tipo: 'Tablero', subtipo: '2' },
-    { file: 'Clasica c-Moldura Bastidor ESPECIAL.webp', tipo: 'Tablero', subtipo: '2' },
-    { file: 'Clasica ESPECIAL c-Moldura Bastidor.webp', tipo: 'Tablero', subtipo: '2' },
-    { file: 'Machimabrada 1pulgada c-espacio.webp', tipo: 'Machimbrada', subtipo: '1' },
-    { file: 'Machimbarada 1p + 2PF V-R.webp', tipo: 'Machimbrada', subtipo: '1' },
-    { file: 'Machimbarada 1p c-espacio DOBLE.webp', tipo: 'Machimbrada', subtipo: '1' },
-    { file: 'Machimbarada 1p Machimbres anchos.webp', tipo: 'Machimbrada', subtipo: '1' },
-    { file: 'Machimbarada 1p.webp', tipo: 'Machimbrada', subtipo: '1' },
-    { file: 'Machimbarada 2p puerta y media.webp', tipo: 'Machimbrada', subtipo: '2' },
-    { file: 'Machimbarada 2p y media c-insertos.webp', tipo: 'Machimbrada', subtipo: '2' },
-    { file: 'Machimbarada 2pulgadas + extension superior.webp', tipo: 'Machimbrada', subtipo: '2' },
-    { file: 'Machimbrada + 2 PF (Pivot).webp', tipo: 'Machimbrada', subtipo: '2' },
-    { file: 'Machimbrada 1p c-barral.webp', tipo: 'Machimbrada', subtipo: '1' },
-    { file: 'Machimbrada 1pulgada + Media hoja V-E.webp', tipo: 'Machimbrada', subtipo: '1' },
-    { file: 'Machimbrada 1pulgada c-espacio vidrio.webp', tipo: 'Machimbrada', subtipo: '1' },
-    { file: 'Machimbrada 1pulgada VE Superior.webp', tipo: 'Machimbrada', subtipo: '1' },
-    { file: 'Machimbrada 1pulgada.webp', tipo: 'Machimbrada', subtipo: '1' },
-    { file: 'Machimbrada 2 pulgdas en 8 machimbres.webp', tipo: 'Machimbrada', subtipo: '2' },
-    { file: 'Machimbrada 2p c-insertos + PF.webp', tipo: 'Machimbrada', subtipo: '2' },
-    { file: 'Machimbrada 2p c-Insertos c-media hoja.webp', tipo: 'Machimbrada', subtipo: '2' },
-    { file: 'Machimbrada 2pulgadas + 2PF.webp', tipo: 'Machimbrada', subtipo: '2' },
-    { file: 'Machimbrada 2pulgadas + superior.webp', tipo: 'Machimbrada', subtipo: '2' },
-    { file: 'Machimbrada 2pulgadas alta.webp', tipo: 'Machimbrada', subtipo: '2' },
-    { file: 'Machimbrada 2pulgadas ancha.webp', tipo: 'Machimbrada', subtipo: '2' },
-    { file: 'Machimbrada 2pulgadas c-2cerrojos.webp', tipo: 'Machimbrada', subtipo: '2' },
-    { file: 'Machimbrada 2pulgadas c-barral.webp', tipo: 'Machimbrada', subtipo: '2' },
-    { file: 'Machimbrada 2pulgadas c-Insertos.webp', tipo: 'Machimbrada', subtipo: '2' },
-    { file: 'Machimbrada 2pulgadas en 8 machimbres.webp', tipo: 'Machimbrada', subtipo: '2' },
-    { file: 'Machimbrada 2pulgadas.webp', tipo: 'Machimbrada', subtipo: '2' },
-    { file: 'Machimbrada Cruz V-R.webp', tipo: 'Machimbrada', subtipo: '1' },
-    { file: 'Machimbrada Vertical - Bariloche dorso.webp', tipo: 'Machimbrada', subtipo: 'v' },
-    { file: 'Machimbrada Vertical - Bariloche.webp', tipo: 'Machimbrada', subtipo: 'v' },
-    { file: 'Machimbrada Vertical angost.webp', tipo: 'Machimbrada', subtipo: 'v' },
-    { file: 'Machimbrada Vertical angosta frente.webp', tipo: 'Machimbrada', subtipo: 'v' },
-    { file: 'Machimbrada vertical c-espacio.webp', tipo: 'Machimbrada', subtipo: 'v' },
-    { file: 'Machimbrada Vertical normal.webp', tipo: 'Machimbrada', subtipo: 'v' },
-    { file: 'Machimbrada vertical.webp', tipo: 'Machimbrada', subtipo: 'v' },
-    { file: 'Mitad Machimbrada Mitad V-R.webp', tipo: 'Machimbrada', subtipo: '1' },
-    { file: 'Placa lisa.webp', tipo: 'Placa', subtipo: 'todas' },
-    { file: 'Placa V-E.webp', tipo: 'Placa', subtipo: 'todas' },
-    { file: 'Puerta tiple 2001.webp', tipo: 'Tablero', subtipo: '1' },
-    { file: 'Puerta y media 2000 V-E.webp', tipo: 'Vidrio', subtipo: 'todas' },
-    { file: 'Puerta y media placa cedrillo.webp', tipo: 'Placa', subtipo: 'todas' }
+    { file: '1002-Clásica-angosta.webp', tipo: 'tablero', subtipo: '2' },
+    { file: '1002-Clásica.webp', tipo: 'tablero', subtipo: '2' },
+    { file: '1004+PF-Especial.webp', tipo: 'tablero', subtipo: '4' },
+    { file: '1004+PF.webp', tipo: 'tablero', subtipo: '4' },
+    { file: '1004-Recta.webp', tipo: 'tablero', subtipo: '4' },
+    { file: '1004-Ciega-puerta-y-media.webp', tipo: 'tablero', subtipo: '4' },
+    { file: '1004-SOL.webp', tipo: 'Tablero', subtipo: '4' },
+    { file: '1006-ciega-1-4pto.webp', tipo: 'Tablero', subtipo: '6' },
+    { file: '1006-Ciega-doble.webp', tipo: 'Tablero', subtipo: '6' },
+    { file: '1006-Ciega-nva.webp', tipo: 'Tablero', subtipo: '6' },
+    { file: '1006-Ciega.webp', tipo: 'Tablero', subtipo: '6' },
+    { file: '1006-sol.webp', tipo: 'Tablero', subtipo: '6' },
+    { file: '1006-VR.webp', tipo: 'Tablero', subtipo: '6' },
+    { file: '1008-Ciega.webp', tipo: 'Tablero', subtipo: '8' },
+    { file: '2000-VR-estilo-campo.webp', tipo: 'Vidrio', subtipo: 'todas' },
+    { file: '2000-VR-Total.webp', tipo: 'Vidrio', subtipo: 'todas' },
+    { file: '2000-vr.webp', tipo: 'Vidrio', subtipo: 'todas' },
+    { file: '2001-Florencia.webp', tipo: 'Tablero', subtipo: '1' },
+    { file: '2001-Griega.webp', tipo: 'Vidrio', subtipo: '1' },
+    { file: '2001-VR-en-4-hojas.webp', tipo: 'Vidrio', subtipo: '1' },
+    { file: '2001-VR-Florencia.webp', tipo: 'Tablero', subtipo: '1' },
+    { file: '2001-vr.webp', tipo: 'Tablero', subtipo: '1' },
+    { file: '2002-Doble.webp', tipo: 'Tablero', subtipo: '2' },
+    { file: '2002-Clasica-doble.webp', tipo: 'Tablero', subtipo: '2' },
+    { file: '2002-Clásica-c-Moldura-Bastidor.webp', tipo: 'Tablero', subtipo: '2' },
+    { file: '2002-Clásica-pecho-paloma.webp', tipo: 'Tablero', subtipo: '2' },
+    { file: '2002-Horizontal-VR.webp', tipo: 'Tablero', subtipo: '2' },
+    { file: '2002-VR-Doble.webp', tipo: 'Tablero', subtipo: '2' },
+    { file: '2002-VR-Horizontal.webp', tipo: 'Tablero', subtipo: '2' },
+    { file: '2002-VR.webp', tipo: 'Tablero', subtipo: '2' },
+    { file: 'Clasica-c-Moldura-Bastidor-ESPECIAL.webp', tipo: 'Tablero', subtipo: '2' },
+    { file: 'Clasica-ESPECIAL-c-Moldura-Bastidor.webp', tipo: 'Tablero', subtipo: '2' },
+    { file: 'Machimbrada-1pulgada-c-espacio.webp', tipo: 'Machimbrada', subtipo: '1' },
+    { file: 'Machimbrada-1p+2PF-VR.webp', tipo: 'Machimbrada', subtipo: '1' },
+    { file: 'Machimbrada-1p-c-espacio-DOBLE.webp', tipo: 'Machimbrada', subtipo: '1' },
+    { file: 'Machimbrada-1p-Machimbres-anchos.webp', tipo: 'Machimbrada', subtipo: '1' },
+    { file: 'Machimbrada-1p.webp', tipo: 'Machimbrada', subtipo: '1' },
+    { file: 'Machimbrada-2p-puerta-y-media.webp', tipo: 'Machimbrada', subtipo: '2' },
+    { file: 'Machimbrada-2p-y-media-c-insertos.webp', tipo: 'Machimbrada', subtipo: '2' },
+    { file: 'Machimbrada-2pulgadas+extension-superior.webp', tipo: 'Machimbrada', subtipo: '2' },
+    { file: 'Machimbrada+2PF-(Pivot).webp', tipo: 'Machimbrada', subtipo: '2' },
+    { file: 'Machimbrada-1p-c-barral.webp', tipo: 'Machimbrada', subtipo: '1' },
+    { file: 'Machimbrada-1pulgada+Media-hoja-VE.webp', tipo: 'Machimbrada', subtipo: '1' },
+    { file: 'Machimbrada-1pulgada-c-espacio-vidrio.webp', tipo: 'Machimbrada', subtipo: '1' },
+    { file: 'Machimbrada-1pulgada-VE-Superior.webp', tipo: 'Machimbrada', subtipo: '1' },
+    { file: 'Machimbrada-1pulgada.webp', tipo: 'Machimbrada', subtipo: '1' },
+    { file: 'Machimbrada-2pulgadas-en-8-machimbres.webp', tipo: 'Machimbrada', subtipo: '2' },
+    { file: 'Machimbrada-2p-c-insertos+PF.webp', tipo: 'Machimbrada', subtipo: '2' },
+    { file: 'Machimbrada-2p-c-Insertos-c-media-hoja.webp', tipo: 'Machimbrada', subtipo: '2' },
+    { file: 'Machimbrada-2pulgadas+2PF.webp', tipo: 'Machimbrada', subtipo: '2' },
+    { file: 'Machimbrada-2pulgadas+superior.webp', tipo: 'Machimbrada', subtipo: '2' },
+    { file: 'Machimbrada-2pulgadas-alta.webp', tipo: 'Machimbrada', subtipo: '2' },
+    { file: 'Machimbrada-2pulgadas-ancha.webp', tipo: 'Machimbrada', subtipo: '2' },
+    { file: 'Machimbrada-2pulgadas-c-2cerrojos.webp', tipo: 'Machimbrada', subtipo: '2' },
+    { file: 'Machimbrada-2pulgadas-c-barral.webp', tipo: 'Machimbrada', subtipo: '2' },
+    { file: 'Machimbrada-2pulgadas-c-Insertos.webp', tipo: 'Machimbrada', subtipo: '2' },
+    { file: 'Machimbrada-2pulgadas-en-8-machimbres.webp', tipo: 'Machimbrada', subtipo: '2' },
+    { file: 'Machimbrada-2pulgadas.webp', tipo: 'Machimbrada', subtipo: '2' },
+    { file: 'Machimbrada-Cruz-VR.webp', tipo: 'Machimbrada', subtipo: '1' },
+    { file: 'Machimbrada-Vertical-Bariloche-dorso.webp', tipo: 'Machimbrada', subtipo: 'v' },
+    { file: 'Machimbrada-Vertical-Bariloche.webp', tipo: 'Machimbrada', subtipo: 'v' },
+    { file: 'Machimbrada-Vertical-angost.webp', tipo: 'Machimbrada', subtipo: 'v' },
+    { file: 'Machimbrada-Vertical-angosta frente.webp', tipo: 'Machimbrada', subtipo: 'v' },
+    { file: 'Machimbrada-Vertical-c-espacio.webp', tipo: 'Machimbrada', subtipo: 'v' },
+    { file: 'Machimbrada-Vertical-normal.webp', tipo: 'Machimbrada', subtipo: 'v' },
+    { file: 'Machimbrada-vertical.webp', tipo: 'Machimbrada', subtipo: 'v' },
+    { file: 'Mitad-Machimbrada2p-Mitad-VR.webp', tipo: 'Machimbrada', subtipo: '1' },
+    { file: 'Placa-lisa.webp', tipo: 'Placa', subtipo: 'todas' },
+    { file: 'Placa-VE.webp', tipo: 'Placa', subtipo: 'todas' },
+    { file: 'Triple-2001.webp', tipo: 'Tablero', subtipo: '1' },
+    { file: 'Puerta-y-media-2000-VE.webp', tipo: 'Vidrio', subtipo: 'todas' },
+    { file: 'Puerta-y-media-placa-cedrillo.webp', tipo: 'Placa', subtipo: 'todas' }
 ];
 
 
