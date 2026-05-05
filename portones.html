@@ -34,7 +34,7 @@
         <div class="hero-overlay">
             <div class="hero-content hero-content-center">
                 <h1>Nuestros Portones</h1>
-                <p>Seguridad y diseño para tu propiedad</p>
+                <br>
                       <div class="galeria-hero galeria-ventanas galeria-puertas">
                     <div class="galeria-item"><img src="Imagenes/Portones/20200828_110902.webp" alt="Portón Corredizo" data-modelo="Portón Corredizo"></div>
                     <div class="galeria-item"><img src="Imagenes/Portones/20200828_111019.webp" alt="Portón de Cedro" data-modelo="Portón de Cedro"></div>
@@ -48,21 +48,14 @@
         <!-- Modal para imagen grande -->
         <div id="modal-galeria" class="modal-galeria">
             <span class="cerrar-modal">&times;</span>
-            <img class="modal-img" src="" alt="Imagen grande">
+            <div class="modal-galeria-container">
+                <button class="modal-nav-btn prev">❮</button>
+                <img class="modal-img" src="" alt="Imagen grande">
+                <button class="modal-nav-btn next">❯</button>
+            </div>
             <div class="modal-leyenda"></div>
         </div>
     </section>
-
-    <section class="seccion-que-hacemos">
-        <div class="contenedor">
-            <h2 class="titulo-que-hacemos">Portones de Madera</h2>
-            <div class="contenido-texto">
-                <p>Fabricamos portones de madera de alta calidad, diseñados para garantizar seguridad y durabilidad.</p>
-                <p>Utilizamos <b>Cedro Australiano</b> y <b>Eucalipto</b> para las hojas, y materiales de primera para los marcos y herrería.</p>
-            </div>
-        </div>
-    </section>
-
 
 
     <footer>
@@ -98,13 +91,46 @@
 const modal = document.getElementById('modal-galeria');
 const modalImg = modal.querySelector('.modal-img');
 const modalLeyenda = modal.querySelector('.modal-leyenda');
+const prevBtn = modal.querySelector('.modal-nav-btn.prev');
+const nextBtn = modal.querySelector('.modal-nav-btn.next');
+let currentImageIndex = 0;
+let visibleImages = [];
+
+function getVisibleImages() {
+    return Array.from(document.querySelectorAll('.galeria-item')).filter(item => item.style.display !== 'none');
+}
+
 document.querySelectorAll('.galeria-portones img').forEach(img => {
     img.addEventListener('click', function() {
+        visibleImages = getVisibleImages();
+        currentImageIndex = visibleImages.findIndex(item => item.querySelector('img') === this);
         modal.style.display = 'flex';
-        modalImg.src = this.src;
-        modalLeyenda.textContent = this.getAttribute('data-modelo');
+        updateModalImage();
     });
 });
+
+function updateModalImage() {
+    if (visibleImages.length === 0) return;
+    const currentItem = visibleImages[currentImageIndex];
+    const img = currentItem.querySelector('img');
+    modalImg.src = img.src;
+    modalLeyenda.textContent = img.getAttribute('data-modelo');
+}
+
+prevBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    visibleImages = getVisibleImages();
+    currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length;
+    updateModalImage();
+});
+
+nextBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    visibleImages = getVisibleImages();
+    currentImageIndex = (currentImageIndex + 1) % visibleImages.length;
+    updateModalImage();
+});
+
 modal.querySelector('.cerrar-modal').onclick = function() {
     modal.style.display = 'none';
 };

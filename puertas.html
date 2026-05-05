@@ -45,8 +45,8 @@
                             <button class="filtro-btn" data-filter-type="tipo" data-filter-value="placas">Puertas placas</button>
                         </div>
                         <div class="subfiltros" data-parent="machimbrada">
-                            <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="1">1\"</button>
-                            <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="2">2\"</button>
+                            <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="1">1" (pulgada)</button>
+                            <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="2">2" (pulgadas)</button>
                         </div>
                         <div class="subfiltros" data-parent="tableros">
                             <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="4">4 tableros</button>
@@ -75,7 +75,11 @@
     <!-- Modal para imagen grande -->
     <div id="modal-galeria" class="modal-galeria">
             <span class="cerrar-modal">&times;</span>
-            <img class="modal-img" src="" alt="Imagen grande">
+            <div class="modal-galeria-container">
+                <button class="modal-nav-btn prev">❮</button>
+                <img class="modal-img" src="" alt="Imagen grande">
+                <button class="modal-nav-btn next">❯</button>
+            </div>
             <div class="modal-leyenda"></div>
         </div>
 
@@ -113,11 +117,15 @@
 const modal = document.getElementById('modal-galeria');
 const modalImg = modal.querySelector('.modal-img');
 const modalLeyenda = modal.querySelector('.modal-leyenda');
+const prevBtn = modal.querySelector('.modal-nav-btn.prev');
+const nextBtn = modal.querySelector('.modal-nav-btn.next');
 const tipoButtons = document.querySelectorAll('.filtro-btn[data-filter-type="tipo"]');
 const subfilterGroups = document.querySelectorAll('.subfiltros');
 const subfilterButtons = document.querySelectorAll('.subfiltro');
 let activeTipo = 'todas';
 let activeSubtipo = '';
+let currentImageIndex = 0;
+let visibleImages = [];
 
 tipoButtons.forEach(btn => {
     btn.addEventListener('click', function() {
@@ -158,15 +166,43 @@ function filterDoorItems() {
     });
 }
 
+function getVisibleImages() {
+    return Array.from(document.querySelectorAll('.galeria-item')).filter(item => item.style.display !== 'none');
+}
+
 updateSubfilterGroups();
 
 document.querySelectorAll('.galeria-puertas img').forEach(img => {
     img.addEventListener('click', function() {
+        visibleImages = getVisibleImages();
+        currentImageIndex = visibleImages.findIndex(item => item.querySelector('img') === this);
         modal.style.display = 'flex';
-        modalImg.src = this.src;
-        modalLeyenda.textContent = this.getAttribute('data-modelo');
+        updateModalImage();
     });
 });
+
+function updateModalImage() {
+    if (visibleImages.length === 0) return;
+    const currentItem = visibleImages[currentImageIndex];
+    const img = currentItem.querySelector('img');
+    modalImg.src = img.src;
+    modalLeyenda.textContent = img.getAttribute('data-modelo');
+}
+
+prevBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    visibleImages = getVisibleImages();
+    currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length;
+    updateModalImage();
+});
+
+nextBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    visibleImages = getVisibleImages();
+    currentImageIndex = (currentImageIndex + 1) % visibleImages.length;
+    updateModalImage();
+});
+
 modal.querySelector('.cerrar-modal').onclick = function() {
     modal.style.display = 'none';
 };
