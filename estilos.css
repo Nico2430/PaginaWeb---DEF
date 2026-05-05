@@ -782,7 +782,11 @@ footer {
 }
 
 .hero.hero-ventanas .hero-overlay {
-    padding-top: 120px;
+    padding-top: 60px;
+}
+
+.hero.hero-ventanas .hero-content {
+    padding-top: 20px;
 }
 
 .hero-content{
