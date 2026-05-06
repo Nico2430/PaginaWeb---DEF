@@ -130,7 +130,7 @@ let currentImageIndex = 0;
 let visibleImages = [];
 
 const puertaImages = [
-    { file: '1002-Clásica-angosta.webp', tipo: 'tablero', subtipo: '2' },
+    { file: '1002-Clásica-angosta.webp', tipo: 'tablero', subtipo: '2'},
     { file: '1002-Clásica.webp', tipo: 'tablero', subtipo: '2' },
     { file: '1004+PF-Especial.webp', tipo: 'tablero', subtipo: '4' },
     { file: '1004+PF.webp', tipo: 'tablero', subtipo: '4' },
@@ -213,11 +213,12 @@ function buildPuertasGallery() {
         galleryItem.className = 'galeria-item';
         galleryItem.dataset.tipo = item.tipo.toLowerCase();
         galleryItem.dataset.subtipo = item.subtipo.toLowerCase();
+        galleryItem.dataset.modelo = item.nombre || item.file.replace('.webp', '').replace(/-/g, ' ');
 
         const image = document.createElement('img');
         image.loading = 'lazy';
         image.src = `Imagenes/Puertas/${encodeURI(item.file)}`;
-        image.dataset.modelo = item.file;
+        image.dataset.modelo = item.nombre || item.file.replace('.webp', '').replace(/-/g, ' ');
 
         galleryItem.appendChild(image);
         gallery.appendChild(galleryItem);
