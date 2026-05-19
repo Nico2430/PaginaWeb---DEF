@@ -532,6 +532,7 @@ function handleSwipe() {
         visibleImages = getVisibleImages();
         if (contador) contador.textContent = `${visibleImages.length} modelo${visibleImages.length === 1 ? '' : 's'}`;
     };
+    const scrollToPageTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
     const updateModalImage = () => {
         if (!visibleImages.length) return;
         const img = visibleImages[currentImageIndex].querySelector('img');
@@ -556,6 +557,7 @@ function handleSwipe() {
         subfilterButtons.forEach(b => b.classList.remove('activo'));
         updateSubfilterGroups();
         filterItems();
+        scrollToPageTop();
     }));
     subfilterButtons.forEach(btn => btn.addEventListener('click', function(e) {
         e.stopPropagation();

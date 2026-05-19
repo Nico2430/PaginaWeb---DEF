@@ -47,9 +47,12 @@
                         <button class="filtro-btn" data-filter-type="tipo" data-filter-value="machimbrada">Machimbrada</button>
                         <!-- Subfiltros de Machimbrada (ahora están justo debajo de su botón) -->
                         <div class="subfiltros" data-parent="machimbrada">
-                            <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="1">1" (pulgada)</button>
-                            <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="2">2" (pulgadas)</button>
-                            <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="v">Vertical</button>
+                            <button class="filtro-btn subfiltro" data-filter-type="orientacion" data-filter-value="horizontal">Horizontal</button>
+                            <div class="subfiltros subfiltros-nivel-2" data-parent="machimbrada-horizontal">
+                                <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="1">1" (pulgada)</button>
+                                <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="2">2" (pulgadas)</button>
+                            </div>
+                            <button class="filtro-btn subfiltro" data-filter-type="orientacion" data-filter-value="vertical">Vertical</button>
                         </div>
 
                         <!-- Botón Tableros -->
@@ -159,6 +162,7 @@ const subfilterButtons = document.querySelectorAll('.subfiltro');
 const contadorPuertas = document.getElementById('contador-puertas');
 let activeTipo = 'todas';
 let activeSubtipo = '';
+let activeOrientacion = '';
 let currentImageIndex = 0;
 let visibleImages = [];
 
@@ -246,6 +250,10 @@ function buildPuertasGallery() {
         galleryItem.className = 'galeria-item';
         galleryItem.dataset.tipo = item.tipo.toLowerCase();
         galleryItem.dataset.subtipo = item.subtipo.toLowerCase();
+        galleryItem.dataset.orientacion = item.tipo.toLowerCase() === 'machimbrada'
+            ? (item.subtipo.toLowerCase() === 'v' ? 'vertical' : 'horizontal')
+            : '';
+        galleryItem.dataset.pulgada = galleryItem.dataset.orientacion === 'horizontal' ? item.subtipo.toLowerCase() : '';
         galleryItem.dataset.modelo = item.nombre || item.file.replace('.webp', '').replace(/-/g, ' ');
 
         const image = document.createElement('img');
@@ -264,18 +272,29 @@ tipoButtons.forEach(btn => {
     btn.addEventListener('click', function() {
         activeTipo = this.dataset.filterValue;
         activeSubtipo = '';
+        activeOrientacion = '';
         tipoButtons.forEach(b => b.classList.remove('activo'));
         this.classList.add('activo');
         subfilterButtons.forEach(b => b.classList.remove('activo'));
         updateSubfilterGroups();
         filterDoorItems();
+        scrollToPageTop();
     });
 });
 
 subfilterButtons.forEach(btn => {
     btn.addEventListener('click', function() {
-        activeSubtipo = this.dataset.filterValue;
-        subfilterButtons.forEach(b => b.classList.remove('activo'));
+        if (this.dataset.filterType === 'orientacion') {
+            activeOrientacion = this.dataset.filterValue;
+            activeSubtipo = '';
+            document.querySelectorAll('.subfiltro[data-filter-type="orientacion"]').forEach(b => b.classList.remove('activo'));
+            document.querySelectorAll('.subfiltros-nivel-2 .subfiltro').forEach(b => b.classList.remove('activo'));
+            updateSubfilterGroups();
+        } else {
+            activeSubtipo = this.dataset.filterValue;
+            const currentGroup = this.closest('.subfiltros');
+            currentGroup.querySelectorAll('.subfiltro[data-filter-type="subtipo"]').forEach(b => b.classList.remove('activo'));
+        }
         this.classList.add('activo');
         filterDoorItems();
     });
@@ -283,18 +302,27 @@ subfilterButtons.forEach(btn => {
 
 function updateSubfilterGroups() {
     subfilterGroups.forEach(group => {
-        group.classList.toggle('activo', group.dataset.parent === activeTipo);
+        const isActiveParent = group.dataset.parent === activeTipo;
+        const isMachimbradaInches = group.dataset.parent === 'machimbrada-horizontal'
+            && activeTipo === 'machimbrada'
+            && activeOrientacion === 'horizontal';
+        group.classList.toggle('activo', isActiveParent || isMachimbradaInches);
     });
 }
 
 function filterDoorItems() {
     const filtroActivo = activeTipo.toLowerCase();
     const subtipoActivo = activeSubtipo.toLowerCase();
+    const orientacionActiva = activeOrientacion.toLowerCase();
 
     document.querySelectorAll('.galeria-item').forEach(item => {
         const tipo = item.dataset.tipo.toLowerCase();
         const subtipo = item.dataset.subtipo.toLowerCase();
+        const orientacion = item.dataset.orientacion.toLowerCase();
         let visible = filtroActivo === 'todas' || tipo === filtroActivo;
+        if (visible && filtroActivo === 'machimbrada' && orientacionActiva) {
+            visible = orientacion === orientacionActiva;
+        }
         if (visible && subtipoActivo) {
             visible = subtipo === subtipoActivo;
         }
@@ -309,6 +337,10 @@ function filterDoorItems() {
 
 function getVisibleImages() {
     return Array.from(document.querySelectorAll('.galeria-item')).filter(item => item.style.display !== 'none');
+}
+
+function scrollToPageTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 updateSubfilterGroups();
