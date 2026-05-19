@@ -1,4 +1,4 @@
-# 🪵 DEF Aberturas
+# DEF Aberturas
 
 Sitio web oficial de **DEF Aberturas**, empresa especializada en la fabricación de puertas, ventanas, portones y aberturas de madera a medida.
 
