@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="https://wa.me/5491151074926" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/5491151074926" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
         <img src="Imagenes/whatsapp.png" alt="WhatsApp">
     </a>
     <header>
@@ -18,49 +18,55 @@
             <a href="index.html" class="logo-link">
                 <img src="Imagenes/Logo-DEF-PNG.png" alt="DEF Aberturas Logo" class="logo-img">
             </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-superior">☰ Menú</button>
             <ul class="menu-superior">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="puertas.html">Puertas</a></li>
-                <li><a href="#portones">Portones</a></li>
-                <li><a href="ventanas.html">Ventanas</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="index.html" class="">Inicio</a></li>
+                <li><a href="puertas.html" class="">Puertas</a></li>
+                <li><a href="portones.html" class="activo">Portones</a></li>
+                <li><a href="ventanas.html" class="">Ventanas</a></li>
+                <li><a href="nosotros.html" class="">Nosotros</a></li>
             </ul>
             <div class="button-area">
                 <a href="contacto.html" class="btn-contactanos">Contactanos</a>
             </div>
         </div>
     </header>
-
-    <section class="hero hero-portones">
+    <section class="hero hero-portones hero-productos">
         <div class="hero-overlay">
             <div class="hero-content hero-content-center">
                 <h1>Nuestros Portones</h1>
-                <br>
-                      <div class="galeria-hero galeria-ventanas galeria-puertas galeria-portones">
-                    <div class="galeria-item" data-tipo="portones" data-subtipo="todas"><img loading="lazy" src="Imagenes/Portones/1710429294277.webp" alt="Portón 1710429294277" data-modelo="Portón 1710429294277"></div>
-                    <div class="galeria-item" data-tipo="portones" data-subtipo="todas"><img loading="lazy" src="Imagenes/Portones/20200828_110902.webp" alt="Portón Corredizo" data-modelo="Portón Corredizo"></div>
-                    <div class="galeria-item" data-tipo="portones" data-subtipo="todas"><img loading="lazy" src="Imagenes/Portones/20200828_111019.webp" alt="Portón de Cedro" data-modelo="Portón de Cedro"></div>
-                    <div class="galeria-item" data-tipo="portones" data-subtipo="todas"><img loading="lazy" src="Imagenes/Portones/20201007_150208.webp" alt="Portón Colonial" data-modelo="Portón Colonial"></div>
-                    <div class="galeria-item" data-tipo="portones" data-subtipo="todas"><img loading="lazy" src="Imagenes/Portones/20201007_150251.webp" alt="Portón de Eucalipto" data-modelo="Portón de Eucalipto"></div>
-                    <div class="galeria-item" data-tipo="portones" data-subtipo="todas"><img loading="lazy" src="Imagenes/Portones/20210305_094112.webp" alt="Portón Moderno" data-modelo="Portón Moderno"></div>
-                    <div class="galeria-item" data-tipo="portones" data-subtipo="todas"><img loading="lazy" src="Imagenes/Portones/IMG-20230623-WA0002.webp" alt="Portón WhatsApp 0002" data-modelo="Portón WhatsApp 0002"></div>
-                    <div class="galeria-item" data-tipo="portones" data-subtipo="todas"><img loading="lazy" src="Imagenes/Portones/IMG-20230623-WA0003.webp" alt="Portón WhatsApp 0003" data-modelo="Portón WhatsApp 0003"></div>
-                    <div class="galeria-item" data-tipo="portones" data-subtipo="todas"><img loading="lazy" src="Imagenes/Portones/IMG_20221005_132159.webp" alt="Portón de Entrada" data-modelo="Portón de Entrada"></div>
+                <div class="galeria-layout">
+                    <aside class="galeria-sidebar">
+                        <h2>Filtrar</h2>
+                        <div class="filtro-grupo">
+                            <button class="filtro-btn activo" data-filter-type="tipo" data-filter-value="todas">Todos</button>
+                            <button class="filtro-btn" data-filter-type="tipo" data-filter-value="tablero">Tableros</button>
+                            <button class="filtro-btn" data-filter-type="tipo" data-filter-value="vidrio">Con vidrio</button>
+                            <button class="filtro-btn" data-filter-type="tipo" data-filter-value="ciego">Ciegos</button>
+                            <button class="filtro-btn" data-filter-type="tipo" data-filter-value="machimbrado">Machimbrados</button>
+                        </div>
+                    </aside>
+                    <div class="galeria-principal">
+                        <div class="galeria-toolbar">
+                            <p class="galeria-intro">Modelos de portones de madera para frente, garage y accesos.</p>
+                            <span class="galeria-contador" id="contador-portones"></span>
+                        </div>
+                        <div class="galeria-hero galeria-ventanas galeria-portones-dinamica"></div>
+                    </div>
                 </div>
+                
+            <div id="modal-galeria" class="modal-galeria">
+                <span class="cerrar-modal">&times;</span>
+                <div class="modal-galeria-container">
+                    <button class="modal-nav-btn prev">❮</button>
+                    <img class="modal-img" src="" alt="Imagen grande">
+                    <button class="modal-nav-btn next">❯</button>
+                </div>
+                <div class="modal-leyenda"></div>
             </div>
-        </div>
-        <!-- Modal para imagen grande -->
-        <div id="modal-galeria" class="modal-galeria">
-            <span class="cerrar-modal">&times;</span>
-            <div class="modal-galeria-container">
-                <button class="modal-nav-btn prev">❮</button>
-                <img class="modal-img" src="" alt="Imagen grande">
-                <button class="modal-nav-btn next">❯</button>
             </div>
-            <div class="modal-leyenda"></div>
         </div>
     </section>
-
 
     <footer>
         <div class="contenedor">
@@ -73,9 +79,7 @@
                     <h3>Contacto</h3>
                     <p>WhatsApp: 11 5107-4926</p>
                     <p>Email: defaberturas@gmail.com</p>
-                    <p>Horarios de Contacto:
-                        Lunes a Viernes de 8 a 18hs.
-                    </p> 
+                    <p>Horarios de Contacto:<br>Lunes a Viernes de 8 a 18hs.</p> 
                 </div>
                 <div class="footer-box">
                     <h3>Seguinos</h3>
@@ -91,58 +95,196 @@
         </div>
     </footer>
 <script>
-// Modal galería para portones
-const modal = document.getElementById('modal-galeria');
-const modalImg = modal.querySelector('.modal-img');
-const modalLeyenda = modal.querySelector('.modal-leyenda');
-const prevBtn = modal.querySelector('.modal-nav-btn.prev');
-const nextBtn = modal.querySelector('.modal-nav-btn.next');
-let currentImageIndex = 0;
-let visibleImages = [];
+const portonImages = [
+    {
+        "file": "10-tableros-ciego.webp",
+        "tipo": "ciego",
+        "subtipo": "todas",
+        "nombre": "10 Tableros Ciego"
+    },
+    {
+        "file": "2001-ve.webp",
+        "tipo": "vidrio",
+        "subtipo": "todas",
+        "nombre": "2001 Ve"
+    },
+    {
+        "file": "2001-vr.webp",
+        "tipo": "vidrio",
+        "subtipo": "todas",
+        "nombre": "2001 Vr"
+    },
+    {
+        "file": "3-tableros-sol-dorso.webp",
+        "tipo": "vidrio",
+        "subtipo": "todas",
+        "nombre": "3 Tableros Sol Dorso"
+    },
+    {
+        "file": "3-tableros-sol-frente.webp",
+        "tipo": "vidrio",
+        "subtipo": "todas",
+        "nombre": "3 Tableros Sol Frente"
+    },
+    {
+        "file": "6-tableros-v-r-dorso.webp",
+        "tipo": "tablero",
+        "subtipo": "todas",
+        "nombre": "6 Tableros V R Dorso"
+    },
+    {
+        "file": "6-tableros-v-r.webp",
+        "tipo": "tablero",
+        "subtipo": "todas",
+        "nombre": "6 Tableros V R"
+    },
+    {
+        "file": "machimbrado-1pulgada-dorso.webp",
+        "tipo": "machimbrado",
+        "subtipo": "todas",
+        "nombre": "Machimbrado 1pulgada Dorso"
+    },
+    {
+        "file": "machimbrado-1pulgada-frente.webp",
+        "tipo": "machimbrado",
+        "subtipo": "todas",
+        "nombre": "Machimbrado 1pulgada Frente"
+    }
+];
 
-function getVisibleImages() {
-    return Array.from(document.querySelectorAll('.galeria-item')).filter(item => item.style.display !== 'none');
+function buildGallery(items, gallerySelector, basePath) {
+    const gallery = document.querySelector(gallerySelector);
+    gallery.innerHTML = '';
+    items.forEach(item => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'galeria-item';
+        galleryItem.dataset.tipo = item.tipo.toLowerCase();
+        galleryItem.dataset.subtipo = item.subtipo.toLowerCase();
+        galleryItem.dataset.modelo = item.nombre;
+        const image = document.createElement('img');
+        image.loading = 'lazy';
+        image.src = `${basePath}/${item.file}`;
+        image.alt = item.nombre;
+        image.dataset.modelo = item.nombre;
+        galleryItem.appendChild(image);
+        gallery.appendChild(galleryItem);
+    });
+}
+function initFilterableGallery({items, gallerySelector, basePath, counterId}) {
+    const modal = document.getElementById('modal-galeria');
+    const modalImg = modal.querySelector('.modal-img');
+    const modalLeyenda = modal.querySelector('.modal-leyenda');
+    const prevBtn = modal.querySelector('.modal-nav-btn.prev');
+    const nextBtn = modal.querySelector('.modal-nav-btn.next');
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+modalImg.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+modalImg.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    const swipeDistance = touchStartX - touchEndX;
+
+    if (swipeDistance > 50) {
+        nextBtn.click();
+    }
+
+    if (swipeDistance < -50) {
+        prevBtn.click();
+    }
 }
 
-document.querySelectorAll('.galeria-hero.galeria-portones img').forEach(img => {
-    img.addEventListener('click', function() {
+    const tipoButtons = document.querySelectorAll('.filtro-btn[data-filter-type="tipo"]');
+    const subfilterGroups = document.querySelectorAll('.subfiltros');
+    const subfilterButtons = document.querySelectorAll('.subfiltro');
+    const contador = document.getElementById(counterId);
+    let activeTipo = 'todas';
+    let activeSubtipo = '';
+    let currentImageIndex = 0;
+    let visibleImages = [];
+    buildGallery(items, gallerySelector, basePath);
+    const allItems = () => Array.from(document.querySelectorAll(`${gallerySelector} .galeria-item`));
+    const getVisibleImages = () => allItems().filter(item => item.style.display !== 'none');
+    const updateSubfilterGroups = () => subfilterGroups.forEach(group => group.classList.toggle('activo', group.dataset.parent === activeTipo));
+    const filterItems = () => {
+        allItems().forEach(item => {
+            let visible = activeTipo === 'todas' || item.dataset.tipo === activeTipo;
+            if (visible && activeSubtipo) visible = item.dataset.subtipo === activeSubtipo;
+            item.style.display = visible ? '' : 'none';
+        });
+        visibleImages = getVisibleImages();
+        if (contador) contador.textContent = `${visibleImages.length} modelo${visibleImages.length === 1 ? '' : 's'}`;
+    };
+    const updateModalImage = () => {
+        if (!visibleImages.length) return;
+        const img = visibleImages[currentImageIndex].querySelector('img');
+        modalImg.style.opacity = '0';
+        setTimeout(() => {
+            modalImg.src = img.src;
+            modalLeyenda.textContent = img.dataset.modelo;
+            modalImg.style.opacity = '1';
+        }, 120);
+    };
+    document.querySelectorAll(`${gallerySelector} img`).forEach(img => img.addEventListener('click', function() {
         visibleImages = getVisibleImages();
         currentImageIndex = visibleImages.findIndex(item => item.querySelector('img') === this);
         modal.style.display = 'flex';
         updateModalImage();
-    });
-});
-
-function updateModalImage() {
-    if (visibleImages.length === 0) return;
-    const currentItem = visibleImages[currentImageIndex];
-    const img = currentItem.querySelector('img');
-    modalImg.src = img.src;
-    modalLeyenda.textContent = img.getAttribute('data-modelo');
+    }));
+    tipoButtons.forEach(btn => btn.addEventListener('click', function() {
+        activeTipo = this.dataset.filterValue;
+        activeSubtipo = '';
+        tipoButtons.forEach(b => b.classList.remove('activo'));
+        this.classList.add('activo');
+        subfilterButtons.forEach(b => b.classList.remove('activo'));
+        updateSubfilterGroups();
+        filterItems();
+    }));
+    subfilterButtons.forEach(btn => btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        activeSubtipo = this.dataset.filterValue;
+        subfilterButtons.forEach(b => b.classList.remove('activo'));
+        this.classList.add('activo');
+        filterItems();
+    }));
+    prevBtn.addEventListener('click', e => { e.stopPropagation(); visibleImages = getVisibleImages(); currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length; updateModalImage(); });
+    nextBtn.addEventListener('click', e => { e.stopPropagation(); visibleImages = getVisibleImages(); currentImageIndex = (currentImageIndex + 1) % visibleImages.length; updateModalImage(); });
+    modal.querySelector('.cerrar-modal').onclick = () => modal.style.display = 'none';
+    modal.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
+    document.addEventListener('keydown', e => { if (modal.style.display === 'flex') { if (e.key === 'ArrowLeft') prevBtn.click(); if (e.key === 'ArrowRight') nextBtn.click(); if (e.key === 'Escape') modal.style.display = 'none'; }});
+    updateSubfilterGroups();
+    filterItems();
 }
 
-prevBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    visibleImages = getVisibleImages();
-    currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length;
-    updateModalImage();
-});
+initFilterableGallery({items: portonImages, gallerySelector: '.galeria-portones-dinamica', basePath: 'Imagenes/Portones', counterId: 'contador-portones'});
+</script>
 
-nextBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    visibleImages = getVisibleImages();
-    currentImageIndex = (currentImageIndex + 1) % visibleImages.length;
-    updateModalImage();
-});
-
-modal.querySelector('.cerrar-modal').onclick = function() {
-    modal.style.display = 'none';
-};
-window.onclick = function(event) {
-    if (event.target === modal) {
-        modal.style.display = 'none';
-    }
-};
+<script>
+(function defMobileMenuInit(){
+  const buttons = document.querySelectorAll('.menu-toggle');
+  buttons.forEach((btn) => {
+    const nav = btn.closest('.nav-container');
+    const menu = nav ? nav.querySelector('.menu-superior') : null;
+    if (!menu) return;
+    btn.addEventListener('click', () => {
+      const opened = menu.classList.toggle('menu-abierto');
+      btn.setAttribute('aria-expanded', opened ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('menu-abierto');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  });
+})();
 </script>
 </body>
 </html>

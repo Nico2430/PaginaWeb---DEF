@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="https://wa.me/5491151074926" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/5491151074926" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
         <img src="Imagenes/whatsapp.png" alt="WhatsApp">
     </a>
     <header>
@@ -18,67 +18,52 @@
             <a href="index.html" class="logo-link">
                 <img src="Imagenes/Logo-DEF-PNG.png" alt="DEF Aberturas Logo" class="logo-img">
             </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-superior">☰ Menú</button>
             <ul class="menu-superior">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="puertas.html">Puertas</a></li>
-                <li><a href="portones.html">Portones</a></li>
-                <li><a href="ventanas.html">Ventanas</a></li>
-                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="index.html" class="">Inicio</a></li>
+                <li><a href="puertas.html" class="">Puertas</a></li>
+                <li><a href="portones.html" class="">Portones</a></li>
+                <li><a href="ventanas.html" class="activo">Ventanas</a></li>
+                <li><a href="nosotros.html" class="">Nosotros</a></li>
             </ul>
             <div class="button-area">
                 <a href="contacto.html" class="btn-contactanos">Contactanos</a>
             </div>
         </div>
     </header>
-
-    <section class="hero hero-ventanas">
+    <section class="hero hero-ventanas hero-productos">
         <div class="hero-overlay">
             <div class="hero-content hero-content-center">
-
-            <h1>Nuestras ventanas</h1>
-            <br>
-            <div class="galeria-layout">
-                <aside class="galeria-sidebar">
-                    <h2>Filtrar</h2>
-                    <button class="filtro-btn activo" data-filtro="todas">Todas</button>
-                    <button class="filtro-btn" data-filtro="sola">Ventanas solas</button>
-                    <button class="filtro-btn" data-filtro="postigon">Con postigón</button>
-                    <button class="filtro-btn" data-filtro="celosia">Con celosía</button>
-                </aside>
-                <div class="galeria-principal">
-                    <div class="galeria-hero galeria-ventanas">
-                        <div class="galeria-item" data-tipo="sola">
-                            <img loading="lazy" src="Imagenes/Ventanas/20200116_135519.webp" alt="Ventana Victoria" data-modelo="Ventana Victoria">
+                <h1>Nuestras Ventanas</h1>
+                <div class="galeria-layout">
+                    <aside class="galeria-sidebar">
+                        <h2>Filtrar</h2>
+                        <div class="filtro-grupo">
+                            <button class="filtro-btn activo" data-filter-type="tipo" data-filter-value="todas">Todas</button>
+                            <button class="filtro-btn" data-filter-type="tipo" data-filter-value="sola">Ventanas solas</button>
+                            <div class="subfiltros" data-parent="sola">
+                                <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="corrediza">Corredizas</button>
+                                <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="abrir">De abrir</button>
+                                <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="raja">Rajas</button>
+                                <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="otras">Otras</button>
+                            </div>
+                            <button class="filtro-btn" data-filter-type="tipo" data-filter-value="postigon">Postigones</button>
+                            <div class="subfiltros" data-parent="postigon">
+                                <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="integrado">Con ventana</button>
+                                <button class="filtro-btn subfiltro" data-filter-type="subtipo" data-filter-value="solo">Solo postigón</button>
+                            </div>
+                            <button class="filtro-btn" data-filter-type="tipo" data-filter-value="celosia">Celosías</button>
                         </div>
-                        <div class="galeria-item" data-tipo="sola">
-                            <img loading="lazy" src="Imagenes/Ventanas/20200129_103808.webp" alt="Ventana Clásica" data-modelo="Ventana Clásica">
+                    </aside>
+                    <div class="galeria-principal">
+                        <div class="galeria-toolbar">
+                            <p class="galeria-intro">Explorá ventanas corredizas, de abrir, rajas, postigones y celosías.</p>
+                            <span class="galeria-contador" id="contador-ventanas"></span>
                         </div>
-                        <div class="galeria-item" data-tipo="sola">
-                            <img loading="lazy" src="Imagenes/Ventanas/20200214_091307.webp" alt="Ventana Moderna" data-modelo="Ventana Moderna">
-                        </div>
-                        <div class="galeria-item" data-tipo="postigon">
-                            <img loading="lazy" src="Imagenes/Ventanas/20200717_135158.webp" alt="Ventana con Postigón" data-modelo="Ventana con Postigón">
-                        </div>
-                        <div class="galeria-item" data-tipo="sola">
-                            <img loading="lazy" src="Imagenes/Ventanas/20200903_083659.webp" alt="Ventana de Cedro" data-modelo="Ventana de Cedro">
-                        </div>
-                        <div class="galeria-item" data-tipo="celosia">
-                            <img loading="lazy" src="Imagenes/Ventanas/20201021_122531.webp" alt="Ventana de Eucalipto" data-modelo="Ventana de Eucalipto">
-                        </div>
-                        <!-- Postigones y celosías -->
-                        <div class="galeria-item" data-tipo="postigon">
-                            <img loading="lazy" src="Imagenes/Ventanas/c-Postig%C3%B3n/1710429293877.webp" alt="Postigón de Cedro" data-modelo="Postigón de Cedro">
-                        </div>
-                        <div class="galeria-item" data-tipo="celosia">
-                            <img loading="lazy" src="Imagenes/Ventanas/Celosia/1710429293971.webp" alt="Celosía de Eucalipto" data-modelo="Celosía de Eucalipto">
-                        </div>
-                        <div class="galeria-item" data-tipo="postigon">
-                            <img loading="lazy" src="Imagenes/Ventanas/Solo-Postigon/1710429294205.webp" alt="Postigón Colonial" data-modelo="Postigón Colonial">
-                        </div>
+                        <div class="galeria-hero galeria-ventanas galeria-ventanas-dinamica"></div>
                     </div>
                 </div>
-            </div>
-            <!-- Modal para imagen grande -->
+                
             <div id="modal-galeria" class="modal-galeria">
                 <span class="cerrar-modal">&times;</span>
                 <div class="modal-galeria-container">
@@ -92,10 +77,6 @@
         </div>
     </section>
 
-
-
-
-
     <footer>
         <div class="contenedor">
             <div class="footer-grid">
@@ -107,9 +88,7 @@
                     <h3>Contacto</h3>
                     <p>WhatsApp: 11 5107-4926</p>
                     <p>Email: defaberturas@gmail.com</p>
-                    <p>Horarios de Contacto:
-                        Lunes a Viernes de 8 a 18hs.
-                    </p> 
+                    <p>Horarios de Contacto:<br>Lunes a Viernes de 8 a 18hs.</p> 
                 </div>
                 <div class="footer-box">
                     <h3>Seguinos</h3>
@@ -125,107 +104,496 @@
         </div>
     </footer>
 <script>
-// Variables globales para el modal
-let currentImageIndex = 0;
-let visibleImages = [];
+const ventanaImages = [
+    {
+        "file": "brazo-de-empuje-vidrio-entero-recto.webp",
+        "tipo": "sola",
+        "subtipo": "abrir",
+        "nombre": "Brazo De Empuje Vidrio Entero Recto"
+    },
+    {
+        "file": "c-postign/2-ventanas-corredizas-vidrio-repartido-1-4-punto-interno-c-postign-bariloche-exterior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "2 Ventanas Corredizas Vidrio Repartido 1 4 Punto Interno C Postign Bariloche Exterior"
+    },
+    {
+        "file": "c-postign/2-ventanas-corredizas-vidrio-repartido-1-4-punto-interno-c-postign-bariloche-interior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "2 Ventanas Corredizas Vidrio Repartido 1 4 Punto Interno C Postign Bariloche Interior"
+    },
+    {
+        "file": "c-postign/raja-vidrio-entero-recto-c-postign-bariloche-exterior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Raja Vidrio Entero Recto C Postign Bariloche Exterior"
+    },
+    {
+        "file": "c-postign/raja-vidrio-entero-recto-c-postign-bariloche-interior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Raja Vidrio Entero Recto C Postign Bariloche Interior"
+    },
+    {
+        "file": "c-postign/raja-vidrio-repartido-recto-c-postign-regulable-exterior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Raja Vidrio Repartido Recto C Postign Regulable Exterior"
+    },
+    {
+        "file": "c-postign/raja-vidrio-repartido-recto-c-postign-regulable-interior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Raja Vidrio Repartido Recto C Postign Regulable Interior"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-entero-1-4-punto-interno-c-postign-bariloche-exterior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Entero 1 4 Punto Interno C Postign Bariloche Exterior"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-entero-1-4-punto-interno-c-postign-bariloche-interior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Entero 1 4 Punto Interno C Postign Bariloche Interior"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-entero-1-4-punto-interno-c-postign-regulable-exterior-1.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Entero 1 4 Punto Interno C Postign Regulable Exterior 1"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-entero-1-4-punto-interno-c-postign-regulable-exterior-2.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Entero 1 4 Punto Interno C Postign Regulable Exterior 2"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-entero-1-4-punto-interno-c-postign-regulable-interior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Entero 1 4 Punto Interno C Postign Regulable Interior"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-entero-recto-c-mosquitero-c-postign-bariloche-exterior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Entero Recto C Mosquitero C Postign Bariloche Exterior"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-entero-recto-c-mosquitero-c-postign-bariloche-interior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Entero Recto C Mosquitero C Postign Bariloche Interior"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-entero-recto-c-postign-regulable-exterior-1.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Entero Recto C Postign Regulable Exterior 1"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-entero-recto-c-postign-regulable-exterior-2.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Entero Recto C Postign Regulable Exterior 2"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-entero-recto-c-postign-regulable-exterior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Entero Recto C Postign Regulable Exterior"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-entero-recto-c-postign-regulable-interior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Entero Recto C Postign Regulable Interior"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-repartido-1-4-punto-interno-c-postign-bariloche-exterior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Repartido 1 4 Punto Interno C Postign Bariloche Exterior"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-repartido-1-4-punto-interno-c-postign-bariloche-interior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Repartido 1 4 Punto Interno C Postign Bariloche Interior"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-repartido-1-4-punto-interno-c-postign-comn-exterior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Repartido 1 4 Punto Interno C Postign Comn Exterior"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-repartido-1-4-punto-interno-c-postign-comn-interior-mediana.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Repartido 1 4 Punto Interno C Postign Comn Interior Mediana"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-repartido-1-4-punto-interno-c-postign-comn-interior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Repartido 1 4 Punto Interno C Postign Comn Interior"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-repartido-recto-c-postign-regulable-exterior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Repartido Recto C Postign Regulable Exterior"
+    },
+    {
+        "file": "c-postign/ventana-corrediza-vidrio-repartido-recto-c-postign-regulable-interior.webp",
+        "tipo": "postigon",
+        "subtipo": "integrado",
+        "nombre": "Ventana Corrediza Vidrio Repartido Recto C Postign Regulable Interior"
+    },
+    {
+        "file": "celosia/celosa-en-3-hojas-exterior.webp",
+        "tipo": "celosia",
+        "subtipo": "celosia",
+        "nombre": "Celosa En 3 Hojas Exterior"
+    },
+    {
+        "file": "celosia/celosa-en-3-hojas-interior.webp",
+        "tipo": "celosia",
+        "subtipo": "celosia",
+        "nombre": "Celosa En 3 Hojas Interior"
+    },
+    {
+        "file": "corrediza-vidrio-entero-recto-dorso.webp",
+        "tipo": "sola",
+        "subtipo": "corrediza",
+        "nombre": "Corrediza Vidrio Entero Recto Dorso"
+    },
+    {
+        "file": "corrediza-vidrio-entero-recto-frente.webp",
+        "tipo": "sola",
+        "subtipo": "corrediza",
+        "nombre": "Corrediza Vidrio Entero Recto Frente"
+    },
+    {
+        "file": "corrediza-vidrio-entero-recto-mosquitero.webp",
+        "tipo": "sola",
+        "subtipo": "corrediza",
+        "nombre": "Corrediza Vidrio Entero Recto Mosquitero"
+    },
+    {
+        "file": "corrediza-vidrio-repartido-1-4-punto-interno-chica-dorso.webp",
+        "tipo": "sola",
+        "subtipo": "corrediza",
+        "nombre": "Corrediza Vidrio Repartido 1 4 Punto Interno Chica Dorso"
+    },
+    {
+        "file": "corrediza-vidrio-repartido-1-4-punto-interno-chica-frente.webp",
+        "tipo": "sola",
+        "subtipo": "corrediza",
+        "nombre": "Corrediza Vidrio Repartido 1 4 Punto Interno Chica Frente"
+    },
+    {
+        "file": "corrediza-vidrio-repartido-1-4-punto-interno-grande-angosta.webp",
+        "tipo": "sola",
+        "subtipo": "corrediza",
+        "nombre": "Corrediza Vidrio Repartido 1 4 Punto Interno Grande Angosta"
+    },
+    {
+        "file": "corrediza-vidrio-repartido-1-4-punto-interno-grande.webp",
+        "tipo": "sola",
+        "subtipo": "corrediza",
+        "nombre": "Corrediza Vidrio Repartido 1 4 Punto Interno Grande"
+    },
+    {
+        "file": "corrediza-vidrio-repartido-1-4-punto-interno.webp",
+        "tipo": "sola",
+        "subtipo": "corrediza",
+        "nombre": "Corrediza Vidrio Repartido 1 4 Punto Interno"
+    },
+    {
+        "file": "de-abrir-3-hojas-vidrio-repartido-1-4-punto-interno-frente.webp",
+        "tipo": "sola",
+        "subtipo": "abrir",
+        "nombre": "De Abrir 3 Hojas Vidrio Repartido 1 4 Punto Interno Frente"
+    },
+    {
+        "file": "de-abrir-3-hojas-vidrio-repartido-1-4-punto-interno.webp",
+        "tipo": "sola",
+        "subtipo": "abrir",
+        "nombre": "De Abrir 3 Hojas Vidrio Repartido 1 4 Punto Interno"
+    },
+    {
+        "file": "de-abrir-3-hojas-vidrio-repartido-en-2-vidrios-recto-chico.webp",
+        "tipo": "sola",
+        "subtipo": "abrir",
+        "nombre": "De Abrir 3 Hojas Vidrio Repartido En 2 Vidrios Recto Chico"
+    },
+    {
+        "file": "de-abrir-3-hojas-vidrio-repartido-en-2-vidrios-recto-frente.webp",
+        "tipo": "sola",
+        "subtipo": "abrir",
+        "nombre": "De Abrir 3 Hojas Vidrio Repartido En 2 Vidrios Recto Frente"
+    },
+    {
+        "file": "de-abrir-3-hojas-vidrio-repartido-en-2-vidrios-recto.webp",
+        "tipo": "sola",
+        "subtipo": "abrir",
+        "nombre": "De Abrir 3 Hojas Vidrio Repartido En 2 Vidrios Recto"
+    },
+    {
+        "file": "de-abrir-4-hojas-vidrio-repartido-en-2-vidrios-recto.webp",
+        "tipo": "sola",
+        "subtipo": "abrir",
+        "nombre": "De Abrir 4 Hojas Vidrio Repartido En 2 Vidrios Recto"
+    },
+    {
+        "file": "de-abrir-en-1-hoja-vidrio-repartido-1-4-punto-interno.webp",
+        "tipo": "sola",
+        "subtipo": "abrir",
+        "nombre": "De Abrir En 1 Hoja Vidrio Repartido 1 4 Punto Interno"
+    },
+    {
+        "file": "de-abrir-estilo-griego-1-4-punto-interno.webp",
+        "tipo": "sola",
+        "subtipo": "abrir",
+        "nombre": "De Abrir Estilo Griego 1 4 Punto Interno"
+    },
+    {
+        "file": "de-abrir-vidrio-repartido-1-4-punto-interno.webp",
+        "tipo": "sola",
+        "subtipo": "abrir",
+        "nombre": "De Abrir Vidrio Repartido 1 4 Punto Interno"
+    },
+    {
+        "file": "de-abrir-vidrio-repartido-2-vidrios-recto.webp",
+        "tipo": "sola",
+        "subtipo": "abrir",
+        "nombre": "De Abrir Vidrio Repartido 2 Vidrios Recto"
+    },
+    {
+        "file": "de-abrir-vidrio-repartido-en-4-vidrios-recto.webp",
+        "tipo": "sola",
+        "subtipo": "abrir",
+        "nombre": "De Abrir Vidrio Repartido En 4 Vidrios Recto"
+    },
+    {
+        "file": "doble-corrediza-vidrio-entero-recto.webp",
+        "tipo": "sola",
+        "subtipo": "corrediza",
+        "nombre": "Doble Corrediza Vidrio Entero Recto"
+    },
+    {
+        "file": "patagnica-vidrio-entero-recto-pao-fijo.webp",
+        "tipo": "sola",
+        "subtipo": "otras",
+        "nombre": "Patagnica Vidrio Entero Recto Pao Fijo"
+    },
+    {
+        "file": "raja-vidrio-repartido-recto.webp",
+        "tipo": "sola",
+        "subtipo": "raja",
+        "nombre": "Raja Vidrio Repartido Recto"
+    },
+    {
+        "file": "rajas-de-abrir-vidrio-entero-recto.webp",
+        "tipo": "sola",
+        "subtipo": "abrir",
+        "nombre": "Rajas De Abrir Vidrio Entero Recto"
+    },
+    {
+        "file": "rajas-vidrio-repartido-1-4-punto-interno.webp",
+        "tipo": "sola",
+        "subtipo": "raja",
+        "nombre": "Rajas Vidrio Repartido 1 4 Punto Interno"
+    },
+    {
+        "file": "solo-postigon/3-hojas-de-postign-comn.webp",
+        "tipo": "postigon",
+        "subtipo": "solo",
+        "nombre": "3 Hojas De Postign Comn"
+    },
+    {
+        "file": "solo-postigon/postign-comn-en-2-hojas-chico.webp",
+        "tipo": "postigon",
+        "subtipo": "solo",
+        "nombre": "Postign Comn En 2 Hojas Chico"
+    },
+    {
+        "file": "solo-postigon/postign-comn-en-2-hojas.webp",
+        "tipo": "postigon",
+        "subtipo": "solo",
+        "nombre": "Postign Comn En 2 Hojas"
+    },
+    {
+        "file": "solo-postigon/postign-comn-en-3-hojas-mediano.webp",
+        "tipo": "postigon",
+        "subtipo": "solo",
+        "nombre": "Postign Comn En 3 Hojas Mediano"
+    },
+    {
+        "file": "solo-postigon/postign-comn-en-3-hojas.webp",
+        "tipo": "postigon",
+        "subtipo": "solo",
+        "nombre": "Postign Comn En 3 Hojas"
+    },
+    {
+        "file": "solo-postigon/postign-comn-en-4-hojas.webp",
+        "tipo": "postigon",
+        "subtipo": "solo",
+        "nombre": "Postign Comn En 4 Hojas"
+    },
+    {
+        "file": "solo-postigon/postigones-comn-en-2-hojas.webp",
+        "tipo": "postigon",
+        "subtipo": "solo",
+        "nombre": "Postigones Comn En 2 Hojas"
+    },
+    {
+        "file": "ventana-corrediza-vidrio-repartido-1-4-punto-interno-c-guia-barrio.webp",
+        "tipo": "sola",
+        "subtipo": "corrediza",
+        "nombre": "Ventana Corrediza Vidrio Repartido 1 4 Punto Interno C Guia Barrio"
+    }
+];
 
-// Función para obtener imágenes visibles (no ocultas por filtro)
-function getVisibleImages() {
-    return Array.from(document.querySelectorAll('.galeria-item')).filter(item => item.style.display !== 'none');
-}
-
-// Filtro de galería
-document.querySelectorAll('.filtro-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        const filtro = this.getAttribute('data-filtro');
-        document.querySelectorAll('.galeria-item').forEach(item => {
-            if (filtro === 'todas' || item.getAttribute('data-tipo') === filtro) {
-                item.style.display = '';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-        document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('activo'));
-        this.classList.add('activo');
-        visibleImages = getVisibleImages();
+function buildGallery(items, gallerySelector, basePath) {
+    const gallery = document.querySelector(gallerySelector);
+    gallery.innerHTML = '';
+    items.forEach(item => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'galeria-item';
+        galleryItem.dataset.tipo = item.tipo.toLowerCase();
+        galleryItem.dataset.subtipo = item.subtipo.toLowerCase();
+        galleryItem.dataset.modelo = item.nombre;
+        const image = document.createElement('img');
+        image.loading = 'lazy';
+        image.src = `${basePath}/${item.file}`;
+        image.alt = item.nombre;
+        image.dataset.modelo = item.nombre;
+        galleryItem.appendChild(image);
+        gallery.appendChild(galleryItem);
     });
+}
+function initFilterableGallery({items, gallerySelector, basePath, counterId}) {
+    const modal = document.getElementById('modal-galeria');
+    const modalImg = modal.querySelector('.modal-img');
+    const modalLeyenda = modal.querySelector('.modal-leyenda');
+    const prevBtn = modal.querySelector('.modal-nav-btn.prev');
+    const nextBtn = modal.querySelector('.modal-nav-btn.next');
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+modalImg.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
 });
 
-// Modal galería
-const modal = document.getElementById('modal-galeria');
-const modalImg = modal.querySelector('.modal-img');
-const modalLeyenda = modal.querySelector('.modal-leyenda');
-const prevBtn = modal.querySelector('.modal-nav-btn.prev');
-const nextBtn = modal.querySelector('.modal-nav-btn.next');
+modalImg.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
 
-document.querySelectorAll('.galeria-item img').forEach(img => {
-    img.addEventListener('click', function() {
-        modal.style.display = 'flex';
+function handleSwipe() {
+    const swipeDistance = touchStartX - touchEndX;
+
+    if (swipeDistance > 50) {
+        nextBtn.click();
+    }
+
+    if (swipeDistance < -50) {
+        prevBtn.click();
+    }
+}
+
+    const tipoButtons = document.querySelectorAll('.filtro-btn[data-filter-type="tipo"]');
+    const subfilterGroups = document.querySelectorAll('.subfiltros');
+    const subfilterButtons = document.querySelectorAll('.subfiltro');
+    const contador = document.getElementById(counterId);
+    let activeTipo = 'todas';
+    let activeSubtipo = '';
+    let currentImageIndex = 0;
+    let visibleImages = [];
+    buildGallery(items, gallerySelector, basePath);
+    const allItems = () => Array.from(document.querySelectorAll(`${gallerySelector} .galeria-item`));
+    const getVisibleImages = () => allItems().filter(item => item.style.display !== 'none');
+    const updateSubfilterGroups = () => subfilterGroups.forEach(group => group.classList.toggle('activo', group.dataset.parent === activeTipo));
+    const filterItems = () => {
+        allItems().forEach(item => {
+            let visible = activeTipo === 'todas' || item.dataset.tipo === activeTipo;
+            if (visible && activeSubtipo) visible = item.dataset.subtipo === activeSubtipo;
+            item.style.display = visible ? '' : 'none';
+        });
+        visibleImages = getVisibleImages();
+        if (contador) contador.textContent = `${visibleImages.length} modelo${visibleImages.length === 1 ? '' : 's'}`;
+    };
+    const updateModalImage = () => {
+        if (!visibleImages.length) return;
+        const img = visibleImages[currentImageIndex].querySelector('img');
+        modalImg.style.opacity = '0';
+        setTimeout(() => {
+            modalImg.src = img.src;
+            modalLeyenda.textContent = img.dataset.modelo;
+            modalImg.style.opacity = '1';
+        }, 120);
+    };
+    document.querySelectorAll(`${gallerySelector} img`).forEach(img => img.addEventListener('click', function() {
         visibleImages = getVisibleImages();
         currentImageIndex = visibleImages.findIndex(item => item.querySelector('img') === this);
+        modal.style.display = 'flex';
         updateModalImage();
-    });
-});
-
-function updateModalImage() {
-    if (visibleImages.length === 0) return;
-    
-    // Fade out
-    modalImg.style.opacity = '0';
-    
-    // Wait for fade transition and change image
-    setTimeout(() => {
-        const currentItem = visibleImages[currentImageIndex];
-        const img = currentItem.querySelector('img');
-        modalImg.src = img.src;
-        modalLeyenda.textContent = img.getAttribute('data-modelo');
-        
-        // Fade in
-        modalImg.style.opacity = '1';
-    }, 250);
+    }));
+    tipoButtons.forEach(btn => btn.addEventListener('click', function() {
+        activeTipo = this.dataset.filterValue;
+        activeSubtipo = '';
+        tipoButtons.forEach(b => b.classList.remove('activo'));
+        this.classList.add('activo');
+        subfilterButtons.forEach(b => b.classList.remove('activo'));
+        updateSubfilterGroups();
+        filterItems();
+    }));
+    subfilterButtons.forEach(btn => btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        activeSubtipo = this.dataset.filterValue;
+        subfilterButtons.forEach(b => b.classList.remove('activo'));
+        this.classList.add('activo');
+        filterItems();
+    }));
+    prevBtn.addEventListener('click', e => { e.stopPropagation(); visibleImages = getVisibleImages(); currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length; updateModalImage(); });
+    nextBtn.addEventListener('click', e => { e.stopPropagation(); visibleImages = getVisibleImages(); currentImageIndex = (currentImageIndex + 1) % visibleImages.length; updateModalImage(); });
+    modal.querySelector('.cerrar-modal').onclick = () => modal.style.display = 'none';
+    modal.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
+    document.addEventListener('keydown', e => { if (modal.style.display === 'flex') { if (e.key === 'ArrowLeft') prevBtn.click(); if (e.key === 'ArrowRight') nextBtn.click(); if (e.key === 'Escape') modal.style.display = 'none'; }});
+    updateSubfilterGroups();
+    filterItems();
 }
 
-// Navegación con botones
-prevBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length;
-    updateModalImage();
-});
+initFilterableGallery({items: ventanaImages, gallerySelector: '.galeria-ventanas-dinamica', basePath: 'Imagenes/Ventanas', counterId: 'contador-ventanas'});
+</script>
 
-nextBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    currentImageIndex = (currentImageIndex + 1) % visibleImages.length;
-    updateModalImage();
-});
-
-// Navegación con teclado
-document.addEventListener('keydown', function(e) {
-    if (modal.style.display === 'flex') {
-        if (e.key === 'ArrowLeft') {
-            currentImageIndex = (currentImageIndex - 1 + visibleImages.length) % visibleImages.length;
-            updateModalImage();
-        } else if (e.key === 'ArrowRight') {
-            currentImageIndex = (currentImageIndex + 1) % visibleImages.length;
-            updateModalImage();
-        } else if (e.key === 'Escape') {
-            modal.style.display = 'none';
-        }
-    }
-});
-
-// Cerrar modal
-modal.querySelector('.cerrar-modal').onclick = function() {
-    modal.style.display = 'none';
-};
-
-window.onclick = function(event) {
-    if (event.target === modal) {
-        modal.style.display = 'none';
-    }
-};
-
-// Inicializar imágenes visibles
-visibleImages = getVisibleImages();
+<script>
+(function defMobileMenuInit(){
+  const buttons = document.querySelectorAll('.menu-toggle');
+  buttons.forEach((btn) => {
+    const nav = btn.closest('.nav-container');
+    const menu = nav ? nav.querySelector('.menu-superior') : null;
+    if (!menu) return;
+    btn.addEventListener('click', () => {
+      const opened = menu.classList.toggle('menu-abierto');
+      btn.setAttribute('aria-expanded', opened ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('menu-abierto');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  });
+})();
 </script>
 </body>
 </html>

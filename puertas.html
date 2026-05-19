@@ -18,9 +18,10 @@
             <a href="index.html" class="logo-link">
                 <img src="Imagenes/Logo-DEF-PNG.png" alt="DEF Aberturas Logo" class="logo-img">
             </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-superior">☰ Menú</button>
             <ul class="menu-superior">
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="#puertas">Puertas</a></li>
+                <li><a href="puertas.html">Puertas</a></li>
                 <li><a href="portones.html">Portones</a></li>
                 <li><a href="ventanas.html">Ventanas</a></li>
                 <li><a href="nosotros.html">Nosotros</a></li>
@@ -67,6 +68,10 @@
                     </div>
                 </aside>
                     <div class="galeria-principal">
+                        <div class="galeria-toolbar">
+                            <p class="galeria-intro">Explorá modelos machimbrados, tableros, placas y puertas con vidrio.</p>
+                            <span class="galeria-contador" id="contador-puertas"></span>
+                        </div>
                         <div class="galeria-hero galeria-ventanas galeria-puertas"></div>
                     </div>
                 </div>
@@ -121,9 +126,35 @@ const modalImg = modal.querySelector('.modal-img');
 const modalLeyenda = modal.querySelector('.modal-leyenda');
 const prevBtn = modal.querySelector('.modal-nav-btn.prev');
 const nextBtn = modal.querySelector('.modal-nav-btn.next');
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+modalImg.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+modalImg.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    const swipeDistance = touchStartX - touchEndX;
+
+    if (swipeDistance > 50) {
+        nextBtn.click();
+    }
+
+    if (swipeDistance < -50) {
+        prevBtn.click();
+    }
+}
+
 const tipoButtons = document.querySelectorAll('.filtro-btn[data-filter-type="tipo"]');
 const subfilterGroups = document.querySelectorAll('.subfiltros');
 const subfilterButtons = document.querySelectorAll('.subfiltro');
+const contadorPuertas = document.getElementById('contador-puertas');
 let activeTipo = 'todas';
 let activeSubtipo = '';
 let currentImageIndex = 0;
@@ -267,6 +298,11 @@ function filterDoorItems() {
         }
         item.style.display = visible ? '' : 'none';
     });
+
+    visibleImages = getVisibleImages();
+    if (contadorPuertas) {
+        contadorPuertas.textContent = `${visibleImages.length} modelo${visibleImages.length === 1 ? '' : 's'}`;
+    }
 }
 
 function getVisibleImages() {
@@ -274,6 +310,7 @@ function getVisibleImages() {
 }
 
 updateSubfilterGroups();
+filterDoorItems();
 
 document.querySelectorAll('.galeria-puertas img').forEach(img => {
     img.addEventListener('click', function() {
@@ -314,6 +351,27 @@ window.onclick = function(event) {
         modal.style.display = 'none';
     }
 };
+</script>
+
+<script>
+(function defMobileMenuInit(){
+  const buttons = document.querySelectorAll('.menu-toggle');
+  buttons.forEach((btn) => {
+    const nav = btn.closest('.nav-container');
+    const menu = nav ? nav.querySelector('.menu-superior') : null;
+    if (!menu) return;
+    btn.addEventListener('click', () => {
+      const opened = menu.classList.toggle('menu-abierto');
+      btn.setAttribute('aria-expanded', opened ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('menu-abierto');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  });
+})();
 </script>
 </body>
 </html>

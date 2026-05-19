@@ -146,6 +146,7 @@
             <a href="index.html" class="logo-link">
                 <img src="Imagenes/Logo-DEF-PNG.png" alt="DEF Aberturas Logo" class="logo-img">
             </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-superior">☰ Menú</button>
             <ul class="menu-superior">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="puertas.html">Puertas</a></li>
@@ -243,5 +244,26 @@
             </div>
         </div>
     </footer>
+
+<script>
+(function defMobileMenuInit(){
+  const buttons = document.querySelectorAll('.menu-toggle');
+  buttons.forEach((btn) => {
+    const nav = btn.closest('.nav-container');
+    const menu = nav ? nav.querySelector('.menu-superior') : null;
+    if (!menu) return;
+    btn.addEventListener('click', () => {
+      const opened = menu.classList.toggle('menu-abierto');
+      btn.setAttribute('aria-expanded', opened ? 'true' : 'false');
+    });
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('menu-abierto');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
