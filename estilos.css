@@ -1744,6 +1744,145 @@ body { overflow-x: hidden; }
     }
 }
 
+/* ==========================================================
+   Consistencia global: navegacion y catalogos
+   ========================================================== */
+header {
+    padding: 18px 0;
+}
+
+.nav-container {
+    width: min(calc(100% - 48px), var(--max-ancho-contenedor));
+    min-height: 98px;
+    padding: 8px 22px;
+    box-sizing: border-box;
+}
+
+.logo-img {
+    width: auto;
+    height: 80px;
+}
+
+.menu-superior {
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px;
+}
+
+.menu-superior li a {
+    display: block;
+    min-width: 104px;
+    padding: 10px 16px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.btn-contactanos {
+    min-width: 156px;
+    padding: 14px 24px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.hero-productos .hero-content-center,
+.hero-puertas .hero-content-center,
+.hero-ventanas .hero-content-center,
+.hero-portones .hero-content-center {
+    align-items: stretch;
+    text-align: left;
+}
+
+.hero-productos .hero-content,
+.hero-puertas .hero-content,
+.hero-ventanas .hero-content,
+.hero-portones .hero-content {
+    width: 100%;
+    max-width: 1260px;
+}
+
+.hero-productos .galeria-layout,
+.hero-puertas .galeria-layout,
+.hero-ventanas .galeria-layout,
+.hero-portones .galeria-layout {
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 36px;
+    width: 100%;
+    max-width: 1260px;
+    min-height: 560px;
+    margin: 0 auto 40px;
+    box-sizing: border-box;
+}
+
+.hero-productos .galeria-sidebar,
+.hero-puertas .galeria-sidebar,
+.hero-ventanas .galeria-sidebar,
+.hero-portones .galeria-sidebar {
+    width: 100%;
+    max-width: 280px;
+    box-sizing: border-box;
+}
+
+.hero-productos .galeria-ventanas,
+.hero-puertas .galeria-ventanas,
+.hero-ventanas .galeria-ventanas,
+.hero-portones .galeria-ventanas {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+@media (max-width: 1024px) {
+    .nav-container {
+        width: min(calc(100% - 24px), 980px);
+        min-height: 88px;
+        padding: 10px 14px;
+    }
+
+    .hero-productos .galeria-layout,
+    .hero-puertas .galeria-layout,
+    .hero-ventanas .galeria-layout,
+    .hero-portones .galeria-layout {
+        grid-template-columns: 1fr;
+        max-width: 860px;
+        min-height: 0;
+    }
+
+    .hero-productos .galeria-sidebar,
+    .hero-puertas .galeria-sidebar,
+    .hero-ventanas .galeria-sidebar,
+    .hero-portones .galeria-sidebar {
+        max-width: 100%;
+    }
+
+    .hero-productos .galeria-ventanas,
+    .hero-puertas .galeria-ventanas,
+    .hero-ventanas .galeria-ventanas,
+    .hero-portones .galeria-ventanas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+}
+
+@media (max-width: 640px) {
+    .nav-container {
+        min-height: 0;
+    }
+
+    .hero-productos .galeria-layout,
+    .hero-puertas .galeria-layout,
+    .hero-ventanas .galeria-layout,
+    .hero-portones .galeria-layout {
+        max-width: 100%;
+    }
+
+    .hero-productos .galeria-ventanas,
+    .hero-puertas .galeria-ventanas,
+    .hero-ventanas .galeria-ventanas,
+    .hero-portones .galeria-ventanas {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+}
+
 
 .modal-img {
     touch-action: pan-y;
