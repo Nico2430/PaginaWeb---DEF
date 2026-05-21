@@ -1800,6 +1800,18 @@ header {
     max-width: 1260px;
 }
 
+.hero.hero-productos .hero-overlay {
+    padding-top: 120px;
+}
+
+.hero.hero-productos .hero-content {
+    padding-top: 0;
+}
+
+.hero.hero-productos .hero-content h1 {
+    margin-bottom: 56px;
+}
+
 .hero-productos .galeria-layout,
 .hero-puertas .galeria-layout,
 .hero-ventanas .galeria-layout,
@@ -1835,6 +1847,14 @@ header {
         width: min(calc(100% - 24px), 980px);
         min-height: 88px;
         padding: 10px 14px;
+    }
+
+    .hero.hero-productos .hero-overlay {
+        padding-top: 160px;
+    }
+
+    .hero.hero-productos .hero-content h1 {
+        margin-bottom: 32px;
     }
 
     .hero-productos .galeria-layout,
