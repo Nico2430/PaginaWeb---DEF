@@ -39,14 +39,6 @@
     margin-bottom: 0;
 }
 
-/* Filtros galería ventanas */
-.filtros-ventanas {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 40px;
-    padding: 0;
-}
 .filtro-btn {
     background: #504641;
     color: #fff;
@@ -989,17 +981,6 @@ footer {
 .btn-whatsapp:hover {
     background-color: #27ae60;
     transform: scale(1.05); /* Pequeño efecto de zoom */
-}
-
-/* Sección Productos */
-.productos-seccion {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.productos-seccion h2 {
-    font-size: 2.5rem;
-    color: #333;
 }
 
 .whatsapp-float {
