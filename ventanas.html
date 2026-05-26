@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="Imagenes/Logo-DEF-PNG.png">
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="catalogos.css">
+    <link rel="stylesheet" href="cotizador.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
@@ -105,6 +106,8 @@
             </div>
         </div>
     </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="cotizador.js"></script>
 <script>
 const ventanaImages = [
     {
@@ -487,6 +490,7 @@ function initFilterableGallery({items, gallerySelector, basePath, counterId}) {
     const modalLeyenda = modal.querySelector('.modal-leyenda');
     const prevBtn = modal.querySelector('.modal-nav-btn.prev');
     const nextBtn = modal.querySelector('.modal-nav-btn.next');
+    const cotizadorVentanas = window.DEFCotizador.init({ modal, productType: 'ventana' });
 
 let touchStartX = 0;
 let touchEndX = 0;
@@ -541,6 +545,7 @@ function handleSwipe() {
         setTimeout(() => {
             modalImg.src = img.src;
             modalLeyenda.textContent = img.dataset.modelo;
+            cotizadorVentanas.update(img.dataset.modelo, img.src);
             modalImg.style.opacity = '1';
         }, 120);
     };

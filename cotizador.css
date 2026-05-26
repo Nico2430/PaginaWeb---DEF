@@ -1,0 +1,170 @@
+.modal-cotizador-layout {
+    display: grid;
+    grid-template-columns: minmax(320px, 680px) minmax(280px, 390px);
+    align-items: center;
+    justify-content: center;
+    gap: clamp(24px, 4vw, 56px);
+    width: min(94vw, 1220px);
+    max-height: 88vh;
+    padding: 18px 86px;
+    box-sizing: border-box;
+}
+
+.modal-media-panel {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal-cotizador-layout .modal-galeria-container {
+    width: fit-content;
+    max-width: 100%;
+    gap: 0;
+    position: relative;
+}
+
+.modal-cotizador-layout .modal-img {
+    max-width: min(100%, 720px);
+    max-height: 68vh;
+}
+
+.modal-cotizador-layout .modal-leyenda {
+    margin-top: 18px;
+}
+
+.cotizador-modal {
+    width: 100%;
+    margin-top: 0;
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(35, 31, 29, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fff;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.34);
+    box-sizing: border-box;
+}
+
+.cotizador-modal h3 {
+    margin: 0 0 12px;
+    color: #e68a00;
+    font-size: 1.05rem;
+}
+
+.cotizador-campos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.cotizador-campo label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.86);
+}
+
+.cotizador-campo input {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.96);
+    color: #231f1d;
+    font: inherit;
+    box-sizing: border-box;
+}
+
+.modal-cotizador-layout .modal-nav-btn.prev {
+    left: 12px;
+}
+
+.modal-cotizador-layout .modal-nav-btn.next {
+    right: 12px;
+}
+
+.cotizador-resultado {
+    margin-top: 14px;
+    padding: 12px;
+    border-radius: 10px;
+    background: rgba(230, 138, 0, 0.16);
+    border: 1px solid rgba(230, 138, 0, 0.32);
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.cotizador-detalle {
+    margin: 8px 0 0;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.82rem;
+    text-align: center;
+}
+
+.cotizador-disclaimer {
+    margin: 10px 0 0;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.72rem;
+    line-height: 1.35;
+    text-align: center;
+}
+
+.cotizador-consultar {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+@media (max-width: 540px) {
+    .modal-cotizador-layout {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 14px;
+        width: 100vw;
+        max-height: 100vh;
+        padding: 58px 14px 18px;
+        overflow-y: auto;
+    }
+
+    .modal-cotizador-layout .modal-img {
+        max-width: calc(100vw - 96px);
+        max-height: 52vh;
+    }
+
+    .modal-cotizador-layout .modal-nav-btn.prev {
+        left: -4px;
+    }
+
+    .modal-cotizador-layout .modal-nav-btn.next {
+        right: -4px;
+    }
+
+    .cotizador-modal {
+        width: 100%;
+        margin-top: 12px;
+        padding: 14px;
+    }
+
+    .cotizador-campos {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+@media (min-width: 541px) and (max-width: 1024px) {
+    .modal-cotizador-layout {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        width: min(92vw, 760px);
+        padding: 64px 24px 24px;
+        overflow-y: auto;
+    }
+
+    .cotizador-modal {
+        max-width: 520px;
+        margin: 0 auto;
+    }
+}
