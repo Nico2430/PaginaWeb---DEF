@@ -2,7 +2,13 @@
 /* Estilos específicos para la página de contacto */
         .contacto-seccion {
             padding: 80px 20px;
-            background-color: #312824;
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('Imagenes/Fondo-troncos.png');
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: 2528px auto;
+            background-color: #1c130a;
         }
         
         .contacto-grid {
