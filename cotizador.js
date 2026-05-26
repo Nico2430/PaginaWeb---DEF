@@ -61,18 +61,20 @@
     }
 
     function calculate(basePrices, widthCm, heightCm, productType) {
-        const normalizedWidth = Math.min(Math.max(widthCm, 80), 130);
         const normalizedHeight = Math.min(Math.max(heightCm, 200), 250);
-        const widthBase = getWidthBase(normalizedWidth);
-        const base = productType === 'porton' && basePrices.porton
-            ? basePrices.porton
+        const quoteWidth = productType === 'porton'
+            ? Math.min(Math.max(widthCm, 240), 290) / 3
+            : Math.min(Math.max(widthCm, 80), 130);
+        const widthBase = getWidthBase(quoteWidth);
+        const base = productType === 'porton'
+            ? basePrices.widths[widthBase.key] * 3
             : basePrices.widths[widthBase.key];
         const heightSteps = getHeightSteps(normalizedHeight);
         const multiplier = 1 + (widthBase.extraSteps * 0.10) + (heightSteps * 0.05);
 
         return {
             price: Math.round(base * multiplier),
-            widthLabel: productType === 'porton' && basePrices.porton ? 'porton 240' : widthBase.label,
+            widthLabel: productType === 'porton' ? `3 hojas x ${widthBase.label}` : widthBase.label,
             widthExtra: widthBase.extraSteps * 10,
             heightExtra: heightSteps * 5
         };
@@ -135,10 +137,24 @@
         const consult = cotizador.querySelector('.cotizador-consultar');
         let currentBase = null;
         let currentKey = '';
-        let currentState = 'ready';
+
+        if (productType === 'porton') {
+            widthInput.min = '240';
+            widthInput.max = '300';
+            widthInput.step = '10';
+            widthInput.value = '240';
+        }
 
         function setConsult(message) {
             fields.hidden = true;
+            result.hidden = true;
+            detail.hidden = true;
+            consult.hidden = false;
+            consult.textContent = message;
+        }
+
+        function setInlineConsult(message) {
+            fields.hidden = false;
             result.hidden = true;
             detail.hidden = true;
             consult.hidden = false;
@@ -156,8 +172,14 @@
             detail.hidden = false;
             consult.hidden = true;
 
-            const width = parseFloat(widthInput.value.replace(',', '.')) || 80;
+            const width = parseFloat(widthInput.value.replace(',', '.')) || (productType === 'porton' ? 240 : 80);
             const height = parseFloat(heightInput.value.replace(',', '.')) || 200;
+
+            if (productType === 'porton' && width > 290) {
+                setInlineConsult('Para portones de 300 cm o más de ancho, la cotización se realiza de manera personalizada.');
+                return;
+            }
+
             const quote = calculate(currentBase, width, height, productType);
             result.textContent = money.format(quote.price);
             detail.textContent = `Base ${quote.widthLabel} x 200 cm. Adicional ancho: ${quote.widthExtra}%. Adicional alto: ${quote.heightExtra}%.`;
