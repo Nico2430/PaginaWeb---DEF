@@ -42,10 +42,15 @@
         if (text.includes('2000')) return '2000';
         if (text.includes('2001')) return '2001';
         if (text.includes('2002')) return '2002';
-        if (text.includes('machimbrad') && (text.includes('2p') || text.includes('2 pulg') || text.includes('2pulgada'))) return '3002';
-        if (text.includes('machimbrad')) return '3001';
+        if (text.includes('machimbrad')) return '3002';
         if (productType === 'porton' && text.includes('10 tableros')) return '1008';
         return '';
+    }
+
+    function hasVerticalMachimbradaExtra(model, src, productType) {
+        if (productType !== 'puerta') return false;
+        const text = normalize(`${model} ${src}`);
+        return text.includes('machimbrad') && (text.includes('vertical') || text.includes('cruz'));
     }
 
     function getWidthBase(widthCm) {
@@ -60,7 +65,7 @@
         return Math.min(5, Math.floor((heightCm - 205) / 10) + 1);
     }
 
-    function calculate(basePrices, widthCm, heightCm, productType) {
+    function calculate(basePrices, widthCm, heightCm, productType, hasExtra) {
         const normalizedHeight = Math.min(Math.max(heightCm, 200), 250);
         const quoteWidth = productType === 'porton'
             ? Math.min(Math.max(widthCm, 240), 290) / 3
@@ -70,13 +75,15 @@
             ? basePrices.widths[widthBase.key] * 3
             : basePrices.widths[widthBase.key];
         const heightSteps = getHeightSteps(normalizedHeight);
-        const multiplier = 1 + (widthBase.extraSteps * 0.10) + (heightSteps * 0.05);
+        const modelExtra = hasExtra ? 0.10 : 0;
+        const multiplier = 1 + modelExtra + (widthBase.extraSteps * 0.10) + (heightSteps * 0.05);
 
         return {
             price: Math.round(base * multiplier),
             widthLabel: productType === 'porton' ? `3 hojas x ${widthBase.label}` : widthBase.label,
             widthExtra: widthBase.extraSteps * 10,
-            heightExtra: heightSteps * 5
+            heightExtra: heightSteps * 5,
+            modelExtra: modelExtra * 100
         };
     }
 
@@ -137,6 +144,7 @@
         const consult = cotizador.querySelector('.cotizador-consultar');
         let currentBase = null;
         let currentKey = '';
+        let currentHasExtra = false;
 
         if (productType === 'porton') {
             widthInput.min = '240';
@@ -180,9 +188,14 @@
                 return;
             }
 
-            const quote = calculate(currentBase, width, height, productType);
+            if (productType === 'puerta' && (width > 130 || height > 250)) {
+                setInlineConsult('Para puertas de más de 130 cm de ancho o más de 250 cm de alto, la cotización se realiza de manera personalizada.');
+                return;
+            }
+
+            const quote = calculate(currentBase, width, height, productType, currentHasExtra);
             result.textContent = money.format(quote.price);
-            detail.textContent = `Base ${quote.widthLabel} x 200 cm. Adicional ancho: ${quote.widthExtra}%. Adicional alto: ${quote.heightExtra}%.`;
+            detail.textContent = `Base ${quote.widthLabel} x 200 cm. Adicional modelo: ${quote.modelExtra}%. Adicional ancho: ${quote.widthExtra}%. Adicional alto: ${quote.heightExtra}%.`;
         }
 
         function refreshCurrentBase() {
@@ -196,6 +209,7 @@
         return {
             update(model, src) {
                 currentKey = resolvePriceKey(model, src, productType);
+                currentHasExtra = hasVerticalMachimbradaExtra(model, src, productType);
                 refreshCurrentBase();
             }
         };
