@@ -1,23 +1,19 @@
 (function () {
-    const PDF_URL = 'lista-precios.pdf';
-    const PDF_WORKER_URL = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-    const ROW_KEYS = [
-        '2000',
-        '2001',
-        '2002',
-        '1004',
-        '1006',
-        '1008',
-        '1006-vr',
-        '1006-rayo',
-        '1006-sol',
-        '1002',
-        '1002-moldura',
-        '3001'
-    ];
-
-    let priceListPromise = null;
-    let priceList = null;
+    const PRICE_LIST = {
+        '1002': { widths: { '0.80': 520100, '0.90': 587900, '1.00': 686600 }, porton: 1533100 },
+        '1002-moldura': { widths: { '0.80': 515100, '0.90': 577800, '1.00': 668400 } },
+        '1004': { widths: { '0.80': 323800, '0.90': 366000, '1.00': 433400 }, porton: 943100 },
+        '1006': { widths: { '0.80': 344400, '0.90': 389000, '1.00': 454600 }, porton: 1005800 },
+        '1006-vr': { widths: { '0.80': 379200, '0.90': 418700, '1.00': 503700 }, porton: 1077400 },
+        '1006-rayo': { widths: { '0.80': 483200, '0.90': 523800, '1.00': 601000 }, porton: 1166100 },
+        '1006-sol': { widths: { '0.80': 358700, '0.90': 405400, '1.00': 473500 }, porton: 1048900 },
+        '1008': { widths: { '0.80': 367900, '0.90': 402800, '1.00': 468300 }, porton: 1019500 },
+        '2000': { widths: { '0.80': 215300, '0.90': 243100, '1.00': 284100 }, porton: 618200 },
+        '2001': { widths: { '0.80': 228900, '0.90': 258500, '1.00': 302100 }, porton: 659200 },
+        '2002': { widths: { '0.80': 250400, '0.90': 283000, '1.00': 330500 }, porton: 723900 },
+        '3001': { widths: { '0.80': 312800, '0.90': 353300, '1.00': 412800 }, porton: 909300 },
+        '3002': { widths: { '0.80': 312800, '0.90': 353300, '1.00': 412800 }, porton: 909300 }
+    };
 
     const money = new Intl.NumberFormat('es-AR', {
         style: 'currency',
@@ -30,66 +26,6 @@
             .toLowerCase()
             .normalize('NFD')
             .replace(/[\u0300-\u036f]/g, '');
-    }
-
-    function parsePrice(value) {
-        if (value === '-') return null;
-        return Number(value.replace(/\./g, ''));
-    }
-
-    function parseDoorRows(text) {
-        const rowPattern = /(\d{3}(?:\.\d{3})?)\s+(\d{3}(?:\.\d{3})?)\s+(\d{3}(?:\.\d{3})?)\s+(\d{3}(?:\.\d{3})?|1\.\d{3}\.\d{3}|-)/g;
-        const rows = [];
-        let match;
-
-        while ((match = rowPattern.exec(text)) !== null) {
-            rows.push({
-                widths: {
-                    '0.80': parsePrice(match[1]),
-                    '0.90': parsePrice(match[2]),
-                    '1.00': parsePrice(match[3])
-                },
-                porton: parsePrice(match[4])
-            });
-        }
-
-        return rows;
-    }
-
-    async function loadPriceList() {
-        if (priceList) return priceList;
-        if (priceListPromise) return priceListPromise;
-
-        priceListPromise = (async () => {
-            if (!window.pdfjsLib) {
-                throw new Error('No se pudo cargar PDF.js.');
-            }
-
-            window.pdfjsLib.GlobalWorkerOptions.workerSrc = PDF_WORKER_URL;
-            const pdf = await window.pdfjsLib.getDocument(PDF_URL).promise;
-            const page = await pdf.getPage(2);
-            const content = await page.getTextContent();
-            const text = content.items.map(item => item.str).join(' ');
-            const rows = parseDoorRows(text);
-
-            if (rows.length < 11) {
-                throw new Error('No se pudo leer la tabla de puertas del PDF.');
-            }
-
-            const parsed = {};
-            ROW_KEYS.forEach((key, index) => {
-                if (rows[index]) parsed[key] = rows[index];
-            });
-
-            if (!parsed['3002'] && parsed['3001']) {
-                parsed['3002'] = parsed['3001'];
-            }
-
-            priceList = parsed;
-            return priceList;
-        })();
-
-        return priceListPromise;
     }
 
     function resolvePriceKey(model, src, productType) {
@@ -178,7 +114,7 @@
                     <input id="cotizador-alto" type="number" min="200" max="250" step="1" value="200">
                 </div>
             </div>
-            <div class="cotizador-resultado">Leyendo lista de precios...</div>
+            <div class="cotizador-resultado"></div>
             <p class="cotizador-detalle"></p>
             <p class="cotizador-consultar" hidden>Este modelo necesita cotizacion personalizada. Consultanos para calcularlo con la medida exacta.</p>
             <p class="cotizador-disclaimer">Los precios son aproximados y pueden variar según medidas finales, materiales, herrajes, terminaciones y vigencia de lista.</p>
@@ -199,7 +135,7 @@
         const consult = cotizador.querySelector('.cotizador-consultar');
         let currentBase = null;
         let currentKey = '';
-        let currentState = 'loading';
+        let currentState = 'ready';
 
         function setConsult(message) {
             fields.hidden = true;
@@ -210,20 +146,6 @@
         }
 
         function render() {
-            if (currentState === 'loading') {
-                fields.hidden = true;
-                result.hidden = false;
-                detail.hidden = true;
-                consult.hidden = true;
-                result.textContent = 'Leyendo lista de precios...';
-                return;
-            }
-
-            if (currentState === 'error') {
-                setConsult('No se pudo leer la lista de precios. Revisá que lista-precios.pdf esté cargado en el sitio.');
-                return;
-            }
-
             if (!currentBase) {
                 setConsult('Este modelo necesita cotizacion personalizada. Consultanos para calcularlo con la medida exacta.');
                 return;
@@ -242,22 +164,12 @@
         }
 
         function refreshCurrentBase() {
-            currentBase = currentKey && priceList ? priceList[currentKey] : null;
+            currentBase = currentKey ? PRICE_LIST[currentKey] : null;
             render();
         }
 
         widthInput.addEventListener('input', render);
         heightInput.addEventListener('input', render);
-
-        loadPriceList()
-            .then(() => {
-                currentState = 'ready';
-                refreshCurrentBase();
-            })
-            .catch(() => {
-                currentState = 'error';
-                render();
-            });
 
         return {
             update(model, src) {
